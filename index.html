@@ -15,13 +15,12 @@
 }
 :root{
     --orange:#ff6b00;
-    --orange-dark:#e05d00;
-    --black:#0a0a0a;
-    --dark:#131313;
-    --gray:#6b7280;
-    --light:#f5f5f5;
+    --orange-dark:#e55d00;
+    --black:#090909;
+    --dark:#111111;
+    --gray:#71717a;
+    --light:#f4f4f5;
     --white:#ffffff;
-    --radius:20px;
     --font:'Inter',sans-serif;
 }
 html{
@@ -40,8 +39,8 @@ nav{
     top:0;
     left:0;
     right:0;
-    height:74px;
-    background:rgba(10,10,10,0.92);
+    height:76px;
+    background:rgba(9,9,9,0.92);
     backdrop-filter:blur(16px);
     z-index:999;
     display:flex;
@@ -51,13 +50,13 @@ nav{
     border-bottom:1px solid rgba(255,255,255,0.06);
 }
 .nav-logo img{
-    height:44px;
+    height:42px;
 }
 .nav-links{
     display:flex;
-    gap:34px;
-    list-style:none;
     align-items:center;
+    gap:32px;
+    list-style:none;
 }
 .nav-links a{
     color:rgba(255,255,255,0.7);
@@ -71,19 +70,19 @@ nav{
 }
 .nav-btn{
     background:var(--orange);
+    padding:12px 22px;
+    border-radius:14px;
     color:white !important;
-    padding:11px 22px;
-    border-radius:12px;
 }
 /* HERO */
 #hero{
     min-height:100vh;
     background:var(--black);
-    position:relative;
     overflow:hidden;
+    position:relative;
     display:flex;
     align-items:center;
-    padding-top:74px;
+    padding-top:76px;
 }
 .hero-grid{
     position:absolute;
@@ -95,10 +94,10 @@ nav{
 }
 .hero-glow{
     position:absolute;
-    width:700px;
-    height:700px;
-    background:radial-gradient(circle, rgba(255,107,0,0.14), transparent 70%);
-    right:-200px;
+    width:800px;
+    height:800px;
+    background:radial-gradient(circle, rgba(255,107,0,0.13), transparent 70%);
+    right:-240px;
     top:50%;
     transform:translateY(-50%);
 }
@@ -106,12 +105,12 @@ nav{
     position:relative;
     z-index:2;
     max-width:1240px;
-    width:100%;
     margin:auto;
+    width:100%;
     padding:80px 32px;
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:70px;
+    gap:80px;
     align-items:center;
 }
 .hero-badge{
@@ -119,18 +118,18 @@ nav{
     align-items:center;
     gap:10px;
     background:rgba(255,107,0,0.12);
-    border:1px solid rgba(255,107,0,0.25);
+    border:1px solid rgba(255,107,0,0.24);
     color:var(--orange);
-    padding:8px 16px;
-    border-radius:100px;
+    padding:8px 18px;
+    border-radius:999px;
     font-size:12px;
-    font-weight:700;
+    font-weight:800;
     margin-bottom:28px;
 }
 .hero-title{
-    font-size:clamp(42px,5vw,72px);
+    font-size:clamp(46px,5vw,76px);
+    line-height:1.02;
     font-weight:900;
-    line-height:1.05;
     color:white;
     letter-spacing:-2px;
     margin-bottom:24px;
@@ -140,9 +139,9 @@ nav{
 }
 .hero-sub{
     color:rgba(255,255,255,0.58);
-    font-size:18px;
     line-height:1.8;
-    max-width:520px;
+    font-size:18px;
+    max-width:540px;
     margin-bottom:42px;
 }
 .hero-actions{
@@ -160,49 +159,95 @@ nav{
     transition:.25s;
 }
 .btn-primary:hover{
-    transform:translateY(-3px);
     background:var(--orange-dark);
+    transform:translateY(-3px);
 }
-.btn-ghost{
+.btn-secondary{
     background:rgba(255,255,255,0.06);
-    border:1px solid rgba(255,255,255,0.1);
+    border:1px solid rgba(255,255,255,0.08);
     color:white;
     text-decoration:none;
     padding:18px 34px;
     border-radius:14px;
     font-weight:700;
 }
+/* REALISTIC TIRE */
 .hero-wheel{
     display:flex;
     justify-content:center;
     align-items:center;
 }
 .wheel{
-    width:420px;
-    height:420px;
+    width:430px;
+    height:430px;
     border-radius:50%;
-    border:34px solid #191919;
-    background:
-    radial-gradient(circle at center,#555 0%,#222 50%,#101010 100%);
     position:relative;
-    animation:spin 18s linear infinite;
-    box-shadow:0 0 70px rgba(255,107,0,0.18);
+    animation:wheelSpin 14s linear infinite;
+    filter:drop-shadow(0 0 50px rgba(255,107,0,0.2));
 }
-.wheel::before{
+.tire{
+    position:absolute;
+    inset:0;
+    border-radius:50%;
+    background:
+    radial-gradient(circle at center,#2e2e2e 0%,#191919 60%,#0d0d0d 100%);
+    border:30px solid #0a0a0a;
+}
+.tire::before{
     content:'';
     position:absolute;
-    inset:75px;
+    inset:10px;
     border-radius:50%;
+    border:10px dashed rgba(255,255,255,0.08);
+}
+.rim{
+    position:absolute;
+    inset:72px;
+    border-radius:50%;
+    background:
+    radial-gradient(circle at center,#717171 0%,#393939 55%,#1a1a1a 100%);
+}
+.spoke{
+    position:absolute;
+    width:18px;
+    height:150px;
+    background:linear-gradient(to bottom,#7b7b7b,#2e2e2e);
+    left:50%;
+    top:50%;
+    transform-origin:center -12px;
+    margin-left:-9px;
+    border-radius:20px;
+}
+.spoke:nth-child(1){transform:rotate(0deg) translateY(-75px);}
+.spoke:nth-child(2){transform:rotate(60deg) translateY(-75px);}
+.spoke:nth-child(3){transform:rotate(120deg) translateY(-75px);}
+.spoke:nth-child(4){transform:rotate(180deg) translateY(-75px);}
+.spoke:nth-child(5){transform:rotate(240deg) translateY(-75px);}
+.spoke:nth-child(6){transform:rotate(300deg) translateY(-75px);}
+.center-cap{
+    position:absolute;
+    width:110px;
+    height:110px;
+    border-radius:50%;
+    background:
+    radial-gradient(circle at center,#ff9647 0%,#ff6b00 45%,#c44d00 100%);
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    border:10px solid #1b1b1b;
+}
+.center-cap::before{
+    content:'';
+    position:absolute;
+    width:22px;
+    height:22px;
     background:#111;
-}
-.wheel::after{
-    content:'';
-    position:absolute;
-    inset:160px;
     border-radius:50%;
-    background:var(--orange);
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
 }
-@keyframes spin{
+@keyframes wheelSpin{
     from{
         transform:rotate(0deg);
     }
@@ -223,23 +268,48 @@ nav{
 }
 .section-eyebrow{
     color:var(--orange);
-    text-transform:uppercase;
     font-size:12px;
-    font-weight:800;
+    text-transform:uppercase;
     letter-spacing:2px;
+    font-weight:800;
     margin-bottom:14px;
 }
 .section-title{
-    font-size:clamp(32px,4vw,56px);
+    font-size:clamp(34px,4vw,58px);
+    line-height:1.05;
     font-weight:900;
     letter-spacing:-1px;
-    margin-bottom:16px;
+    margin-bottom:18px;
 }
 .section-sub{
     color:var(--gray);
     font-size:18px;
-    line-height:1.7;
-    max-width:620px;
+    line-height:1.8;
+    max-width:650px;
+}
+/* STATS */
+.stats{
+    background:var(--dark);
+}
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+}
+.stat{
+    text-align:center;
+    padding:42px 20px;
+    border-right:1px solid rgba(255,255,255,0.06);
+}
+.stat:last-child{
+    border:none;
+}
+.stat h2{
+    color:var(--orange);
+    font-size:46px;
+    margin-bottom:8px;
+}
+.stat p{
+    color:rgba(255,255,255,0.5);
 }
 /* SERVICES */
 .services-grid{
@@ -257,56 +327,88 @@ nav{
 .service-card:hover{
     transform:translateY(-6px);
     background:white;
-    box-shadow:0 14px 36px rgba(0,0,0,0.07);
+    box-shadow:0 14px 40px rgba(0,0,0,0.08);
 }
 .service-icon{
-    width:58px;
-    height:58px;
-    border-radius:16px;
-    background:linear-gradient(135deg,var(--orange),#ff9b2f);
+    width:60px;
+    height:60px;
+    border-radius:18px;
+    background:linear-gradient(135deg,var(--orange),#ff9c2e);
     display:flex;
     align-items:center;
     justify-content:center;
-    font-size:26px;
-    margin-bottom:20px;
+    font-size:28px;
+    margin-bottom:22px;
 }
 .service-card h3{
     margin-bottom:10px;
-    font-size:18px;
 }
 .service-card p{
     color:var(--gray);
     line-height:1.7;
-    font-size:15px;
 }
-/* STATS */
-.stats{
-    background:var(--dark);
+/* CHECKER */
+#checker{
+    background:var(--black);
+}
+#checker .section-title{
     color:white;
 }
-.stats-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-}
-.stat{
-    text-align:center;
-    padding:40px 20px;
-    border-right:1px solid rgba(255,255,255,0.06);
-}
-.stat:last-child{
-    border:none;
-}
-.stat h2{
-    color:var(--orange);
-    font-size:44px;
-    margin-bottom:6px;
-}
-.stat p{
+#checker .section-sub{
     color:rgba(255,255,255,0.5);
+}
+.checker-box{
+    max-width:700px;
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:28px;
+    padding:36px;
+}
+.checker-input{
+    width:100%;
+    height:62px;
+    border-radius:16px;
+    border:1px solid rgba(255,255,255,0.08);
+    background:#1b1b1b;
+    color:white;
+    padding:0 20px;
+    font-size:16px;
+    margin-bottom:18px;
+}
+.checker-input:focus{
+    outline:none;
+    border-color:rgba(255,107,0,0.4);
+}
+.check-btn{
+    width:100%;
+    height:62px;
+    border:none;
+    border-radius:16px;
+    background:var(--orange);
+    color:white;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+}
+.result{
+    margin-top:20px;
+    padding:18px;
+    border-radius:16px;
+    display:none;
+    font-weight:600;
+}
+.success{
+    background:rgba(34,197,94,0.12);
+    border:1px solid rgba(34,197,94,0.2);
+    color:#22c55e;
+}
+.error{
+    background:rgba(239,68,68,0.12);
+    border:1px solid rgba(239,68,68,0.2);
+    color:#ef4444;
 }
 /* REVIEWS */
 #reviews{
-    background:white;
     overflow:hidden;
 }
 .reviews-slider{
@@ -317,10 +419,7 @@ nav{
     display:flex;
     gap:22px;
     width:max-content;
-    animation:reviews 38s linear infinite;
-}
-.reviews-track:hover{
-    animation-play-state:paused;
+    animation:reviewsScroll 38s linear infinite;
 }
 .review-card{
     width:320px;
@@ -328,17 +427,11 @@ nav{
     border-radius:24px;
     padding:28px;
     border:1px solid rgba(0,0,0,0.05);
-    transition:.25s;
-}
-.review-card:hover{
-    transform:translateY(-6px);
-    background:white;
-    box-shadow:0 14px 38px rgba(0,0,0,0.08);
 }
 .review-stars{
     color:#ffb400;
-    margin-bottom:16px;
     letter-spacing:2px;
+    margin-bottom:16px;
 }
 .review-text{
     color:var(--gray);
@@ -354,21 +447,14 @@ nav{
     width:48px;
     height:48px;
     border-radius:50%;
-    background:linear-gradient(135deg,var(--orange),#ff9b2f);
+    background:linear-gradient(135deg,var(--orange),#ff9c2e);
+    color:white;
     display:flex;
     align-items:center;
     justify-content:center;
-    color:white;
     font-weight:800;
 }
-.review-user h4{
-    font-size:14px;
-}
-.review-user span{
-    color:var(--gray);
-    font-size:13px;
-}
-@keyframes reviews{
+@keyframes reviewsScroll{
     from{
         transform:translateX(0);
     }
@@ -402,7 +488,7 @@ nav{
     justify-content:center;
     gap:16px;
     flex-wrap:wrap;
-    margin-top:44px;
+    margin-top:42px;
 }
 .btn-whatsapp{
     background:#25d366;
@@ -432,7 +518,6 @@ footer{
 }
 .footer-copy{
     color:rgba(255,255,255,0.4);
-    font-size:14px;
 }
 /* MOBILE */
 @media(max-width:1000px){
@@ -483,15 +568,14 @@ nav{
 </style>
 </head>
 <body>
-<!-- NAV -->
 <nav>
 <a href="#" class="nav-logo">
 <img src="logo.png" alt="Logo">
 </a>
 <ul class="nav-links">
 <li><a href="#services">Leistungen</a></li>
+<li><a href="#checker">Prüfen</a></li>
 <li><a href="#reviews">Bewertungen</a></li>
-<li><a href="#cta">Kontakt</a></li>
 <li>
 <a href="https://calendar.app.google/cqc5T14KyWctMVs58"
 target="_blank"
@@ -501,7 +585,6 @@ Termin buchen
 </li>
 </ul>
 </nav>
-<!-- HERO -->
 <section id="hero">
 <div class="hero-grid"></div>
 <div class="hero-glow"></div>
@@ -516,8 +599,8 @@ Reifenwechsel <br>
 vor Ort
 </h1>
 <p class="hero-sub">
-Kein Warten in der Werkstatt mehr.
-Wir kommen direkt zu Ihnen nach Hause oder zum Parkplatz und wechseln Ihre Räder schnell & zuverlässig.
+Schneller mobiler Räderwechsel ohne Werkstattbesuch.
+Wir kommen direkt zu Ihnen nach Hause oder zum Parkplatz.
 </p>
 <div class="hero-actions">
 <a href="https://calendar.app.google/cqc5T14KyWctMVs58"
@@ -527,17 +610,27 @@ Jetzt Termin buchen
 </a>
 <a href="https://wa.me/4915215787806"
 target="_blank"
-class="btn-ghost">
+class="btn-secondary">
 WhatsApp
 </a>
 </div>
 </div>
 <div class="hero-wheel">
-<div class="wheel"></div>
+<div class="wheel">
+<div class="tire"></div>
+<div class="rim">
+<div class="spoke"></div>
+<div class="spoke"></div>
+<div class="spoke"></div>
+<div class="spoke"></div>
+<div class="spoke"></div>
+<div class="spoke"></div>
+<div class="center-cap"></div>
+</div>
+</div>
 </div>
 </div>
 </section>
-<!-- STATS -->
 <section class="stats">
 <div class="stats-grid">
 <div class="stat">
@@ -558,7 +651,6 @@ WhatsApp
 </div>
 </div>
 </section>
-<!-- SERVICES -->
 <section class="section" id="services">
 <div class="container">
 <div class="section-head">
@@ -576,195 +668,93 @@ Einfacher und schneller Reifenwechsel direkt vor Ort.
 <div class="service-card">
 <div class="service-icon">❄️</div>
 <h3>Sommer / Winter</h3>
-<p>
-Schneller Wechsel Ihrer Räder direkt am Fahrzeug.
-</p>
+<p>Schneller Wechsel Ihrer Räder direkt am Fahrzeug.</p>
 </div>
 <div class="service-card">
 <div class="service-icon">🚗</div>
 <h3>Vor-Ort Service</h3>
-<p>
-Wir kommen direkt zu Ihnen nach Hause oder zum Parkplatz.
-</p>
+<p>Wir kommen direkt zu Ihnen nach Hause oder zum Parkplatz.</p>
 </div>
 <div class="service-card">
 <div class="service-icon">🌙</div>
 <h3>Abendtermine</h3>
-<p>
-Perfekt für Berufstätige mit wenig Zeit tagsüber.
-</p>
+<p>Perfekt für Berufstätige mit wenig Zeit tagsüber.</p>
 </div>
 <div class="service-card">
 <div class="service-icon">⚡</div>
 <h3>Schnell & Einfach</h3>
-<p>
-In ca. 15–30 Minuten wieder fahrbereit.
-</p>
+<p>In ca. 15–30 Minuten wieder fahrbereit.</p>
 </div>
 </div>
 </div>
 </section>
-<!-- REVIEWS -->
-<section class="section" id="reviews">
+<section class="section" id="checker">
 <div class="container">
 <div class="section-head">
 <p class="section-eyebrow">
-Bewertungen
+Servicegebiet
 </p>
 <h2 class="section-title">
-Was Kunden sagen
+Liegt Ihre Adresse im Umkreis?
 </h2>
 <p class="section-sub">
-Echte Erfahrungen aus München & Umgebung.
+Prüfen Sie sofort ob Ihre Adresse innerhalb unseres 10km Radius liegt.
 </p>
 </div>
-<div class="reviews-slider">
-<div class="reviews-track">
-<div class="review-card">
-<div class="review-stars">★★★★★</div>
-<div class="review-text">
-Mega praktisch nach der Arbeit. Keine Werkstatt mehr nötig.
+<div class="checker-box">
+<input
+type="text"
+id="addressInput"
+class="checker-input"
+placeholder="Adresse eingeben..."
+>
+<button class="check-btn" onclick="checkArea()">
+Servicegebiet prüfen
+</button>
+<div id="successResult" class="result success">
+✅ Ihre Adresse liegt im Servicegebiet.
 </div>
-<div class="review-user">
-<div class="review-avatar">MK</div>
-<div>
-<h4>Max Keller</h4>
-<span>BMW 3er</span>
-</div>
-</div>
-</div>
-<div class="review-card">
-<div class="review-stars">★★★★★</div>
-<div class="review-text">
-Pünktlich gekommen und super schnell fertig gewesen.
-</div>
-<div class="review-user">
-<div class="review-avatar">LS</div>
-<div>
-<h4>Laura Schneider</h4>
-<span>Audi A4</span>
-</div>
-</div>
-</div>
-<div class="review-card">
-<div class="review-stars">★★★★★</div>
-<div class="review-text">
-Sehr entspannter Ablauf und echt fairer Preis.
-</div>
-<div class="review-user">
-<div class="review-avatar">TB</div>
-<div>
-<h4>Tobias Braun</h4>
-<span>VW Golf</span>
-</div>
-</div>
-</div>
-<div class="review-card">
-<div class="review-stars">★★★★★</div>
-<div class="review-text">
-Abends Termin bekommen und direkt zuhause gewechselt.
-</div>
-<div class="review-user">
-<div class="review-avatar">AK</div>
-<div>
-<h4>Anna Koch</h4>
-<span>Mini Cooper</span>
-</div>
-</div>
-</div>
-<div class="review-card">
-<div class="review-stars">★★★★★</div>
-<div class="review-text">
-Sehr freundlich und sauber gearbeitet. Gerne wieder.
-</div>
-<div class="review-user">
-<div class="review-avatar">DN</div>
-<div>
-<h4>Daniel Neumann</h4>
-<span>Mercedes C</span>
-</div>
-</div>
-</div>
-<!-- DUPLIKATE -->
-<div class="review-card">
-<div class="review-stars">★★★★★</div>
-<div class="review-text">
-Mega praktisch nach der Arbeit. Keine Werkstatt mehr nötig.
-</div>
-<div class="review-user">
-<div class="review-avatar">MK</div>
-<div>
-<h4>Max Keller</h4>
-<span>BMW 3er</span>
-</div>
-</div>
-</div>
-<div class="review-card">
-<div class="review-stars">★★★★★</div>
-<div class="review-text">
-Pünktlich gekommen und super schnell fertig gewesen.
-</div>
-<div class="review-user">
-<div class="review-avatar">LS</div>
-<div>
-<h4>Laura Schneider</h4>
-<span>Audi A4</span>
-</div>
-</div>
-</div>
-<div class="review-card">
-<div class="review-stars">★★★★★</div>
-<div class="review-text">
-Sehr entspannter Ablauf und echt fairer Preis.
-</div>
-<div class="review-user">
-<div class="review-avatar">TB</div>
-<div>
-<h4>Tobias Braun</h4>
-<span>VW Golf</span>
-</div>
-</div>
-</div>
+<div id="errorResult" class="result error">
+❌ Leider außerhalb unseres 10km Radius.
 </div>
 </div>
 </div>
 </section>
-<!-- CTA -->
-<section class="section" id="cta">
-<div class="container cta-inner">
-<p class="section-eyebrow" style="text-align:center;">
-Kontakt
-</p>
-<h2 class="section-title" style="color:white;">
-Bereit für den Reifenwechsel?
-</h2>
-<p class="section-sub" style="color:rgba(255,255,255,0.5);margin:auto;">
-Jetzt Termin sichern und bequem zuhause wechseln lassen.
-</p>
-<div class="cta-actions">
-<a href="https://calendar.app.google/cqc5T14KyWctMVs58"
-target="_blank"
-class="btn-primary">
-Termin buchen
-</a>
-<a href="https://wa.me/4915215787806"
-target="_blank"
-class="btn-whatsapp">
-WhatsApp schreiben
-</a>
-</div>
-</div>
-</section>
-<!-- FOOTER -->
-<footer>
-<div class="footer-inner">
-<div class="footer-logo">
-<img src="logo.png" alt="Logo">
-</div>
-<div class="footer-copy">
-© 2026 Mobiler Reifenwechsel München
-</div>
-</div>
-</footer>
+<script>
+function checkArea(){
+const input = document
+.getElementById('addressInput')
+.value
+.toLowerCase();
+const success =
+document.getElementById('successResult');
+const error =
+document.getElementById('errorResult');
+success.style.display = 'none';
+error.style.display = 'none';
+const validAreas = [
+'perlach',
+'neuperlach',
+'giesing',
+'ramersdorf',
+'ottobrunn',
+'putzbrunn',
+'neubiberg',
+'trudering',
+'haar',
+'berg am laim',
+'unterhaching',
+'taufkirchen'
+];
+let found = validAreas.some(area =>
+input.includes(area)
+);
+if(found){
+success.style.display = 'block';
+}else{
+error.style.display = 'block';
+}
+}
+</script>
 </body>
 </html>
