@@ -15,7 +15,7 @@
 }
 :root{
     --orange:#ff6b00;
-    --orange-dark:#e65c00;
+    --orange-dark:#e55b00;
     --black:#080808;
     --dark:#111111;
     --gray:#71717a;
@@ -39,8 +39,7 @@ nav{
     left:0;
     right:0;
     height:76px;
-    background:
-    rgba(8,8,8,0.92);
+    background:rgba(8,8,8,0.92);
     backdrop-filter:blur(18px);
     z-index:999;
     display:flex;
@@ -64,7 +63,6 @@ nav{
     text-decoration:none;
     font-size:14px;
     font-weight:600;
-    transition:.2s;
 }
 .nav-links a:hover{
     color:white;
@@ -100,18 +98,18 @@ nav{
     background:
     radial-gradient(
         circle,
-        rgba(255,107,0,0.15),
+        rgba(255,107,0,0.12),
         transparent 70%
     );
-    right:-250px;
+    right:-240px;
     top:50%;
     transform:translateY(-50%);
 }
 .hero-inner{
     position:relative;
     z-index:2;
-    max-width:1280px;
     width:100%;
+    max-width:1280px;
     margin:auto;
     padding:80px 34px;
     display:grid;
@@ -126,7 +124,7 @@ nav{
     background:
     rgba(255,107,0,0.12);
     border:
-    1px solid rgba(255,107,0,0.24);
+    1px solid rgba(255,107,0,0.22);
     color:var(--orange);
     padding:8px 18px;
     border-radius:999px;
@@ -135,7 +133,7 @@ nav{
     margin-bottom:28px;
 }
 .hero-title{
-    font-size:clamp(48px,5vw,82px);
+    font-size:clamp(48px,5vw,84px);
     line-height:1.02;
     font-weight:900;
     letter-spacing:-2px;
@@ -169,8 +167,6 @@ nav{
 .btn-primary:hover{
     transform:translateY(-3px);
     background:var(--orange-dark);
-    box-shadow:
-    0 12px 30px rgba(255,107,0,0.25);
 }
 .btn-secondary{
     background:
@@ -183,22 +179,51 @@ nav{
     border-radius:14px;
     font-weight:700;
 }
-/* REALISTIC WHEEL */
+/* WHEEL */
 .hero-wheel{
     display:flex;
     justify-content:center;
     align-items:center;
-    perspective:1200px;
+}
+.wheel-wrap{
+    position:relative;
+    width:520px;
+    height:520px;
+}
+.orange-square{
+    position:absolute;
+    width:280px;
+    height:280px;
+    background:
+    linear-gradient(
+        135deg,
+        rgba(255,107,0,0.28),
+        rgba(255,107,0,0.08)
+    );
+    border:
+    1px solid rgba(255,255,255,0.06);
+    border-radius:40px;
+    left:50%;
+    top:50%;
+    transform:
+    translate(-50%,-50%)
+    rotate(18deg);
+    backdrop-filter:blur(10px);
+    box-shadow:
+    0 0 80px rgba(255,107,0,0.18);
+    /* KEINE ANIMATION */
 }
 .wheel{
+    position:absolute;
     width:460px;
     height:460px;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
     border-radius:50%;
-    position:relative;
     animation:wheelSpin 6s linear infinite;
     filter:
-    drop-shadow(0 0 60px rgba(255,107,0,0.25))
-    drop-shadow(0 0 120px rgba(255,107,0,0.12));
+    drop-shadow(0 0 60px rgba(255,107,0,0.2));
 }
 .tire{
     position:absolute;
@@ -238,9 +263,6 @@ nav{
         #2f2f2f 60%,
         #161616 100%
     );
-    box-shadow:
-    inset 0 0 30px rgba(255,255,255,0.1),
-    inset 0 0 80px rgba(0,0,0,0.7);
 }
 .spoke{
     position:absolute;
@@ -307,10 +329,14 @@ nav{
 }
 @keyframes wheelSpin{
     from{
-        transform:rotate(0deg);
+        transform:
+        translate(-50%,-50%)
+        rotate(0deg);
     }
     to{
-        transform:rotate(360deg);
+        transform:
+        translate(-50%,-50%)
+        rotate(360deg);
     }
 }
 /* SECTION */
@@ -345,85 +371,17 @@ nav{
     line-height:1.8;
     max-width:650px;
 }
-/* STATS */
-.stats{
-    background:var(--dark);
-}
-.stats-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-}
-.stat{
-    text-align:center;
-    padding:42px 20px;
-    border-right:
-    1px solid rgba(255,255,255,0.06);
-}
-.stat:last-child{
-    border:none;
-}
-.stat h2{
-    color:var(--orange);
-    font-size:46px;
-    margin-bottom:8px;
-}
-.stat p{
-    color:rgba(255,255,255,0.5);
-}
-/* SERVICES */
-.services-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:22px;
-}
-.service-card{
-    background:var(--light);
-    border-radius:24px;
-    padding:34px;
-    transition:.25s;
-    border:
-    1px solid rgba(0,0,0,0.05);
-}
-.service-card:hover{
-    transform:translateY(-6px);
-    background:white;
-    box-shadow:
-    0 14px 40px rgba(0,0,0,0.08);
-}
-.service-icon{
-    width:60px;
-    height:60px;
-    border-radius:18px;
-    background:
-    linear-gradient(
-        135deg,
-        var(--orange),
-        #ff9c2e
-    );
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:28px;
-    margin-bottom:22px;
-}
-.service-card h3{
-    margin-bottom:10px;
-}
-.service-card p{
-    color:var(--gray);
-    line-height:1.7;
-}
-/* CHECKER */
-#checker{
+/* CALCULATOR */
+#calculator{
     background:var(--black);
 }
-#checker .section-title{
+#calculator .section-title{
     color:white;
 }
-#checker .section-sub{
+#calculator .section-sub{
     color:rgba(255,255,255,0.55);
 }
-.checker-box{
+.calc-box{
     max-width:760px;
     background:
     rgba(255,255,255,0.04);
@@ -432,7 +390,14 @@ nav{
     border-radius:28px;
     padding:36px;
 }
-.checker-input{
+.calc-step{
+    color:white;
+    font-size:14px;
+    font-weight:700;
+    margin-bottom:14px;
+}
+.calc-input,
+.calc-select{
     width:100%;
     height:66px;
     border-radius:18px;
@@ -442,14 +407,9 @@ nav{
     color:white;
     padding:0 22px;
     font-size:16px;
-    margin-bottom:18px;
+    margin-bottom:22px;
 }
-.checker-input:focus{
-    outline:none;
-    border-color:
-    rgba(255,107,0,0.5);
-}
-.check-btn{
+.calc-btn{
     width:100%;
     height:66px;
     border:none;
@@ -465,19 +425,22 @@ nav{
     font-weight:700;
     cursor:pointer;
 }
-.result{
+.calc-result{
     display:none;
-    margin-top:22px;
-    padding:18px;
-    border-radius:18px;
-    font-weight:600;
-}
-.success{
+    margin-top:24px;
     background:
-    rgba(34,197,94,0.12);
+    rgba(255,107,0,0.12);
     border:
-    1px solid rgba(34,197,94,0.2);
-    color:#22c55e;
+    1px solid rgba(255,107,0,0.2);
+    border-radius:22px;
+    padding:28px;
+    color:white;
+}
+.price{
+    font-size:54px;
+    font-weight:900;
+    color:var(--orange);
+    margin-top:10px;
 }
 .error{
     background:
@@ -485,96 +448,6 @@ nav{
     border:
     1px solid rgba(239,68,68,0.2);
     color:#ef4444;
-}
-/* REVIEWS */
-#reviews{
-    overflow:hidden;
-}
-.reviews-slider{
-    overflow:hidden;
-    mask-image:
-    linear-gradient(
-        to right,
-        transparent,
-        black 10%,
-        black 90%,
-        transparent
-    );
-}
-.reviews-track{
-    display:flex;
-    gap:22px;
-    width:max-content;
-    animation:reviews 38s linear infinite;
-}
-.review-card{
-    width:320px;
-    background:var(--light);
-    border-radius:24px;
-    padding:28px;
-    border:
-    1px solid rgba(0,0,0,0.05);
-}
-.review-stars{
-    color:#ffb400;
-    letter-spacing:2px;
-    margin-bottom:16px;
-}
-.review-text{
-    color:var(--gray);
-    line-height:1.7;
-    margin-bottom:22px;
-}
-.review-user{
-    display:flex;
-    align-items:center;
-    gap:14px;
-}
-.review-avatar{
-    width:48px;
-    height:48px;
-    border-radius:50%;
-    background:
-    linear-gradient(
-        135deg,
-        var(--orange),
-        #ff9c2e
-    );
-    color:white;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-weight:800;
-}
-@keyframes reviews{
-    from{
-        transform:translateX(0);
-    }
-    to{
-        transform:translateX(-50%);
-    }
-}
-/* FOOTER */
-footer{
-    background:var(--dark);
-    padding:40px 34px;
-    border-top:
-    1px solid rgba(255,255,255,0.06);
-}
-.footer-inner{
-    max-width:1240px;
-    margin:auto;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    flex-wrap:wrap;
-    gap:20px;
-}
-.footer-logo img{
-    height:40px;
-}
-.footer-copy{
-    color:rgba(255,255,255,0.4);
 }
 /* MOBILE */
 @media(max-width:1000px){
@@ -591,12 +464,6 @@ footer{
 .hero-wheel{
     display:none;
 }
-.services-grid{
-    grid-template-columns:1fr 1fr;
-}
-.stats-grid{
-    grid-template-columns:1fr 1fr;
-}
 }
 @media(max-width:768px){
 nav{
@@ -608,19 +475,6 @@ nav{
 .section{
     padding:80px 20px;
 }
-.services-grid{
-    grid-template-columns:1fr;
-}
-.stats-grid{
-    grid-template-columns:1fr;
-}
-.review-card{
-    width:280px;
-}
-.footer-inner{
-    justify-content:center;
-    text-align:center;
-}
 }
 </style>
 </head>
@@ -630,9 +484,7 @@ nav{
 <img src="logo.png" alt="Logo">
 </a>
 <ul class="nav-links">
-<li><a href="#services">Leistungen</a></li>
-<li><a href="#checker">PLZ prüfen</a></li>
-<li><a href="#reviews">Bewertungen</a></li>
+<li><a href="#calculator">Preisrechner</a></li>
 <li>
 <a
 href="https://calendar.app.google/cqc5T14KyWctMVs58"
@@ -659,16 +511,15 @@ Reifenwechsel <br>
 vor Ort
 </h1>
 <p class="hero-sub">
-Schneller mobiler Räderwechsel ohne Werkstattbesuch.
-Wir kommen direkt zu Ihnen nach Hause oder zum Parkplatz.
+Mobiler Räderwechsel direkt zuhause oder auf dem Parkplatz.
+Schnell, einfach und ohne Werkstattbesuch.
 </p>
 <div class="hero-actions">
 <a
-href="https://calendar.app.google/cqc5T14KyWctMVs58"
-target="_blank"
+href="#calculator"
 class="btn-primary"
 >
-Jetzt Termin buchen
+Preis berechnen
 </a>
 <a
 href="https://wa.me/4915215787806"
@@ -681,6 +532,8 @@ WhatsApp
 </div>
 <!-- WHEEL -->
 <div class="hero-wheel">
+<div class="wheel-wrap">
+<div class="orange-square"></div>
 <div class="wheel">
 <div class="tire"></div>
 <div class="rim">
@@ -695,282 +548,120 @@ WhatsApp
 </div>
 </div>
 </div>
-</section>
-<!-- STATS -->
-<section class="stats">
-<div class="stats-grid">
-<div class="stat">
-<h2>30min</h2>
-<p>Ø Wechselzeit</p>
-</div>
-<div class="stat">
-<h2>10km</h2>
-<p>Radius</p>
-</div>
-<div class="stat">
-<h2>100%</h2>
-<p>Mobiler Service</p>
-</div>
-<div class="stat">
-<h2>39€</h2>
-<p>Ab Preis</p>
-</div>
 </div>
 </section>
-<!-- SERVICES -->
-<section class="section" id="services">
+<!-- CALCULATOR -->
+<section class="section" id="calculator">
 <div class="container">
 <div class="section-head">
 <p class="section-eyebrow">
-LEISTUNGEN
+PREISRECHNER
 </p>
 <h2 class="section-title">
-Was wir anbieten
+Preis direkt berechnen
 </h2>
 <p class="section-sub">
-Einfacher und schneller Reifenwechsel direkt vor Ort.
+Schritt 1: Postleitzahl eingeben.<br>
+Schritt 2: Fahrzeug auswählen.<br>
+Das System berechnet automatisch Ihren Preis.
 </p>
 </div>
-<div class="services-grid">
-<div class="service-card">
-<div class="service-icon">❄️</div>
-<h3>Sommer / Winter</h3>
-<p>Schneller Wechsel Ihrer Räder direkt am Fahrzeug.</p>
+<div class="calc-box">
+<div class="calc-step">
+Schritt 1 — Postleitzahl
 </div>
-<div class="service-card">
-<div class="service-icon">🚗</div>
-<h3>Vor-Ort Service</h3>
-<p>Wir kommen direkt zu Ihnen nach Hause oder zum Parkplatz.</p>
-</div>
-<div class="service-card">
-<div class="service-icon">🌙</div>
-<h3>Abendtermine</h3>
-<p>Perfekt für Berufstätige mit wenig Zeit tagsüber.</p>
-</div>
-<div class="service-card">
-<div class="service-icon">⚡</div>
-<h3>Schnell & Einfach</h3>
-<p>In ca. 15–30 Minuten wieder fahrbereit.</p>
-</div>
-</div>
-</div>
-</section>
-<!-- CHECKER -->
-<section class="section" id="checker">
-<div class="container">
-<div class="section-head">
-<p class="section-eyebrow">
-SERVICEGEBIET
-</p>
-<h2 class="section-title">
-PLZ prüfen
-</h2>
-<p class="section-sub">
-Geben Sie Ihre 5-stellige Postleitzahl ein und prüfen Sie ob Sie innerhalb unseres 10km Radius vom PEP Einkaufszentrum liegen.
-</p>
-</div>
-<div class="checker-box">
 <input
 type="text"
-id="addressInput"
-class="checker-input"
-placeholder="5-stellige Postleitzahl eingeben..."
+id="plzInput"
+class="calc-input"
+placeholder="5-stellige Postleitzahl"
 maxlength="5"
 inputmode="numeric"
 >
+<div class="calc-step">
+Schritt 2 — Fahrzeugtyp
+</div>
+<select id="vehicleType" class="calc-select">
+<option value="">
+Fahrzeug auswählen
+</option>
+<option value="pkw">
+PKW
+</option>
+<option value="suv">
+SUV
+</option>
+</select>
 <button
-class="check-btn"
-onclick="checkArea()"
+class="calc-btn"
+onclick="calculatePrice()"
 >
-Jetzt prüfen
+Preis berechnen
 </button>
-<div
-id="successResult"
-class="result success"
->
-✅ Ihre PLZ liegt im Servicegebiet.
-</div>
-<div
-id="errorResult"
-class="result error"
->
-❌ Leider außerhalb unseres Radius.
+<div id="resultBox" class="calc-result">
+<div id="resultText"></div>
+<div id="resultPrice" class="price"></div>
 </div>
 </div>
 </div>
 </section>
-<!-- REVIEWS -->
-<section class="section" id="reviews">
-<div class="container">
-<div class="section-head">
-<p class="section-eyebrow">
-BEWERTUNGEN
-</p>
-<h2 class="section-title">
-Was Kunden sagen
-</h2>
-<p class="section-sub">
-Erfahrungen echter Kunden aus München & Umgebung.
-</p>
-</div>
-<div class="reviews-slider">
-<div class="reviews-track">
-<div class="review-card">
-<div class="review-stars">
-★★★★★
-</div>
-<div class="review-text">
-Mega praktisch nach der Arbeit. Keine Werkstatt mehr nötig.
-</div>
-<div class="review-user">
-<div class="review-avatar">
-MK
-</div>
-<div>
-<h4>Max Keller</h4>
-<span>BMW 3er</span>
-</div>
-</div>
-</div>
-<div class="review-card">
-<div class="review-stars">
-★★★★★
-</div>
-<div class="review-text">
-Sehr pünktlich und sauber gearbeitet.
-</div>
-<div class="review-user">
-<div class="review-avatar">
-LS
-</div>
-<div>
-<h4>Laura Schneider</h4>
-<span>Audi A4</span>
-</div>
-</div>
-</div>
-<div class="review-card">
-<div class="review-stars">
-★★★★★
-</div>
-<div class="review-text">
-Abends Termin bekommen und direkt zuhause gewechselt.
-</div>
-<div class="review-user">
-<div class="review-avatar">
-TB
-</div>
-<div>
-<h4>Tobias Braun</h4>
-<span>VW Golf</span>
-</div>
-</div>
-</div>
-<div class="review-card">
-<div class="review-stars">
-★★★★★
-</div>
-<div class="review-text">
-War schneller fertig als gedacht. Top Service.
-</div>
-<div class="review-user">
-<div class="review-avatar">
-AK
-</div>
-<div>
-<h4>Anna Koch</h4>
-<span>Mini Cooper</span>
-</div>
-</div>
-</div>
-<!-- DUPLIKATE -->
-<div class="review-card">
-<div class="review-stars">
-★★★★★
-</div>
-<div class="review-text">
-Mega praktisch nach der Arbeit. Keine Werkstatt mehr nötig.
-</div>
-<div class="review-user">
-<div class="review-avatar">
-MK
-</div>
-<div>
-<h4>Max Keller</h4>
-<span>BMW 3er</span>
-</div>
-</div>
-</div>
-<div class="review-card">
-<div class="review-stars">
-★★★★★
-</div>
-<div class="review-text">
-Sehr pünktlich und sauber gearbeitet.
-</div>
-<div class="review-user">
-<div class="review-avatar">
-LS
-</div>
-<div>
-<h4>Laura Schneider</h4>
-<span>Audi A4</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- FOOTER -->
-<footer>
-<div class="footer-inner">
-<div class="footer-logo">
-<img src="logo.png" alt="Logo">
-</div>
-<div class="footer-copy">
-© 2026 Mobiler Reifenwechsel München
-</div>
-</div>
-</footer>
-<!-- SCRIPT -->
 <script>
-function checkArea(){
-    const input =
+function calculatePrice(){
+    const plz =
     document
-    .getElementById('addressInput')
+    .getElementById('plzInput')
     .value
     .trim();
-    const success =
-    document.getElementById('successResult');
-    const error =
-    document.getElementById('errorResult');
-    success.style.display = 'none';
-    error.style.display = 'none';
+    const vehicle =
+    document
+    .getElementById('vehicleType')
+    .value;
+    const resultBox =
+    document
+    .getElementById('resultBox');
+    const resultText =
+    document
+    .getElementById('resultText');
+    const resultPrice =
+    document
+    .getElementById('resultPrice');
+    resultBox.style.display = 'none';
+    resultBox.classList.remove('error');
     /*
     NUR ZAHLEN
     */
     const onlyNumbers = /^\d+$/;
-    if(!onlyNumbers.test(input)){
-        error.style.display = 'block';
-        error.innerHTML =
+    if(!onlyNumbers.test(plz)){
+        resultBox.style.display = 'block';
+        resultBox.classList.add('error');
+        resultText.innerHTML =
         '❌ Bitte nur Zahlen eingeben.';
+        resultPrice.innerHTML = '';
         return;
     }
     /*
     GENAU 5 STELLEN
     */
-    if(input.length !== 5){
-        error.style.display = 'block';
-        error.innerHTML =
+    if(plz.length !== 5){
+        resultBox.style.display = 'block';
+        resultBox.classList.add('error');
+        resultText.innerHTML =
         '❌ Bitte eine gültige 5-stellige PLZ eingeben.';
+        resultPrice.innerHTML = '';
+        return;
+    }
+    if(vehicle === ''){
+        resultBox.style.display = 'block';
+        resultBox.classList.add('error');
+        resultText.innerHTML =
+        '❌ Bitte Fahrzeugtyp auswählen.';
+        resultPrice.innerHTML = '';
         return;
     }
     /*
-    SERVICEGEBIET
-    PEP EINKAUFSZENTRUM
+    IM RADIUS
     */
-    const validPLZ = [
+    const inRadius = [
         '81737',
         '81735',
         '81739',
@@ -986,7 +677,12 @@ function checkArea(){
         '81677',
         '81539',
         '81541',
-        '81549',
+        '81549'
+    ];
+    /*
+    MAXIMAL 10KM WEITER
+    */
+    const outsideRadius = [
         '85521',
         '85540',
         '85640',
@@ -994,15 +690,46 @@ function checkArea(){
         '82008',
         '82024'
     ];
-    if(validPLZ.includes(input)){
-        success.style.display = 'block';
-        success.innerHTML =
-        '✅ Ihre PLZ liegt im Servicegebiet.';
-    }else{
-        error.style.display = 'block';
-        error.innerHTML =
-        '❌ Leider außerhalb unseres Radius.';
+    let price = 0;
+    let text = '';
+    /*
+    PKW
+    */
+    if(vehicle === 'pkw'){
+        if(inRadius.includes(plz)){
+            price = '39€';
+            text = '✅ PKW innerhalb unseres Radius';
+        }else if(outsideRadius.includes(plz)){
+            price = '49€';
+            text = '✅ PKW außerhalb des Radius';
+        }
     }
+    /*
+    SUV
+    */
+    if(vehicle === 'suv'){
+        if(inRadius.includes(plz)){
+            price = '49€';
+            text = '✅ SUV innerhalb unseres Radius';
+        }else if(outsideRadius.includes(plz)){
+            price = '59€';
+            text = '✅ SUV außerhalb des Radius';
+        }
+    }
+    /*
+    NICHT VERFÜGBAR
+    */
+    if(price === 0){
+        resultBox.style.display = 'block';
+        resultBox.classList.add('error');
+        resultText.innerHTML =
+        '❌ Leider aktuell außerhalb unseres Servicegebiets.';
+        resultPrice.innerHTML = '';
+        return;
+    }
+    resultBox.style.display = 'block';
+    resultText.innerHTML = text;
+    resultPrice.innerHTML = price;
 }
 </script>
 </body>
