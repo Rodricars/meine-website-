@@ -15,7 +15,7 @@
 }
 :root{
     --orange:#ff6b00;
-    --orange-dark:#e55b00;
+    --orange-dark:#e65c00;
     --black:#080808;
     --dark:#111111;
     --gray:#71717a;
@@ -31,7 +31,6 @@ body{
     background:white;
     color:var(--black);
     overflow-x:hidden;
-    -webkit-font-smoothing:antialiased;
 }
 /* NAV */
 nav{
@@ -40,14 +39,16 @@ nav{
     left:0;
     right:0;
     height:76px;
-    background:rgba(8,8,8,0.92);
+    background:
+    rgba(8,8,8,0.92);
     backdrop-filter:blur(18px);
     z-index:999;
     display:flex;
     align-items:center;
     justify-content:space-between;
     padding:0 34px;
-    border-bottom:1px solid rgba(255,255,255,0.06);
+    border-bottom:
+    1px solid rgba(255,255,255,0.06);
 }
 .nav-logo img{
     height:44px;
@@ -78,8 +79,8 @@ nav{
 #hero{
     min-height:100vh;
     background:var(--black);
-    overflow:hidden;
     position:relative;
+    overflow:hidden;
     display:flex;
     align-items:center;
     padding-top:76px;
@@ -99,18 +100,18 @@ nav{
     background:
     radial-gradient(
         circle,
-        rgba(255,107,0,0.14),
+        rgba(255,107,0,0.15),
         transparent 70%
     );
-    right:-260px;
+    right:-250px;
     top:50%;
     transform:translateY(-50%);
 }
 .hero-inner{
     position:relative;
     z-index:2;
-    width:100%;
     max-width:1280px;
+    width:100%;
     margin:auto;
     padding:80px 34px;
     display:grid;
@@ -125,7 +126,7 @@ nav{
     background:
     rgba(255,107,0,0.12);
     border:
-    1px solid rgba(255,107,0,0.25);
+    1px solid rgba(255,107,0,0.24);
     color:var(--orange);
     padding:8px 18px;
     border-radius:999px;
@@ -134,7 +135,7 @@ nav{
     margin-bottom:28px;
 }
 .hero-title{
-    font-size:clamp(48px,5vw,80px);
+    font-size:clamp(48px,5vw,82px);
     line-height:1.02;
     font-weight:900;
     letter-spacing:-2px;
@@ -197,7 +198,7 @@ nav{
     animation:wheelSpin 6s linear infinite;
     filter:
     drop-shadow(0 0 60px rgba(255,107,0,0.25))
-    drop-shadow(0 0 120px rgba(255,107,0,0.15));
+    drop-shadow(0 0 120px rgba(255,107,0,0.12));
 }
 .tire{
     position:absolute;
@@ -232,7 +233,7 @@ nav{
     background:
     radial-gradient(
         circle at 30% 30%,
-        #c2c2c2 0%,
+        #c9c9c9 0%,
         #666 30%,
         #2f2f2f 60%,
         #161616 100%
@@ -257,9 +258,6 @@ nav{
     margin-left:-11px;
     transform-origin:center -18px;
     border-radius:30px;
-    box-shadow:
-    inset 0 0 10px rgba(255,255,255,0.15),
-    0 0 8px rgba(0,0,0,0.5);
 }
 .spoke1{
     transform:rotate(0deg) translateY(-90px);
@@ -295,9 +293,6 @@ nav{
         #b14400 100%
     );
     border:10px solid #1a1a1a;
-    box-shadow:
-    inset 0 0 20px rgba(255,255,255,0.15),
-    0 0 20px rgba(255,107,0,0.3);
 }
 .center-cap::before{
     content:'';
@@ -436,7 +431,6 @@ nav{
     1px solid rgba(255,255,255,0.08);
     border-radius:28px;
     padding:36px;
-    backdrop-filter:blur(10px);
 }
 .checker-input{
     width:100%;
@@ -454,8 +448,6 @@ nav{
     outline:none;
     border-color:
     rgba(255,107,0,0.5);
-    box-shadow:
-    0 0 0 4px rgba(255,107,0,0.1);
 }
 .check-btn{
     width:100%;
@@ -472,12 +464,6 @@ nav{
     font-size:16px;
     font-weight:700;
     cursor:pointer;
-    transition:.25s;
-}
-.check-btn:hover{
-    transform:translateY(-2px);
-    box-shadow:
-    0 12px 30px rgba(255,107,0,0.25);
 }
 .result{
     display:none;
@@ -568,52 +554,6 @@ nav{
         transform:translateX(-50%);
     }
 }
-/* CTA */
-#cta{
-    background:
-    linear-gradient(
-        140deg,
-        #0d0500,
-        #111
-    );
-    text-align:center;
-    position:relative;
-    overflow:hidden;
-}
-#cta::before{
-    content:'';
-    position:absolute;
-    width:700px;
-    height:700px;
-    background:
-    radial-gradient(
-        circle,
-        rgba(255,107,0,0.15),
-        transparent 70%
-    );
-    left:50%;
-    top:50%;
-    transform:translate(-50%,-50%);
-}
-.cta-inner{
-    position:relative;
-    z-index:2;
-}
-.cta-actions{
-    display:flex;
-    justify-content:center;
-    gap:16px;
-    flex-wrap:wrap;
-    margin-top:42px;
-}
-.btn-whatsapp{
-    background:#25d366;
-    color:white;
-    text-decoration:none;
-    padding:18px 34px;
-    border-radius:14px;
-    font-weight:700;
-}
 /* FOOTER */
 footer{
     background:var(--dark);
@@ -685,14 +625,13 @@ nav{
 </style>
 </head>
 <body>
-<!-- NAV -->
 <nav>
 <a href="#" class="nav-logo">
 <img src="logo.png" alt="Logo">
 </a>
 <ul class="nav-links">
 <li><a href="#services">Leistungen</a></li>
-<li><a href="#checker">10km prüfen</a></li>
+<li><a href="#checker">PLZ prüfen</a></li>
 <li><a href="#reviews">Bewertungen</a></li>
 <li>
 <a
@@ -740,7 +679,7 @@ WhatsApp
 </a>
 </div>
 </div>
-<!-- REALISTIC WHEEL -->
+<!-- WHEEL -->
 <div class="hero-wheel">
 <div class="wheel">
 <div class="tire"></div>
@@ -766,7 +705,7 @@ WhatsApp
 </div>
 <div class="stat">
 <h2>10km</h2>
-<p>Anfahrt inklusive</p>
+<p>Radius</p>
 </div>
 <div class="stat">
 <h2>100%</h2>
@@ -824,10 +763,10 @@ Einfacher und schneller Reifenwechsel direkt vor Ort.
 SERVICEGEBIET
 </p>
 <h2 class="section-title">
-Liegt Ihre Adresse im Umkreis?
+PLZ prüfen
 </h2>
 <p class="section-sub">
-Prüfen Sie ob Ihre Adresse innerhalb unseres 10km Luftlinie Radius vom PEP Einkaufszentrum liegt.
+Geben Sie Ihre 5-stellige Postleitzahl ein und prüfen Sie ob Sie innerhalb unseres 10km Radius vom PEP Einkaufszentrum liegen.
 </p>
 </div>
 <div class="checker-box">
@@ -835,7 +774,9 @@ Prüfen Sie ob Ihre Adresse innerhalb unseres 10km Luftlinie Radius vom PEP Eink
 type="text"
 id="addressInput"
 class="checker-input"
-placeholder="PLZ oder Stadtteil eingeben..."
+placeholder="5-stellige Postleitzahl eingeben..."
+maxlength="5"
+inputmode="numeric"
 >
 <button
 class="check-btn"
@@ -847,13 +788,13 @@ Jetzt prüfen
 id="successResult"
 class="result success"
 >
-✅ Ihre Adresse liegt innerhalb unseres Servicegebiets.
+✅ Ihre PLZ liegt im Servicegebiet.
 </div>
 <div
 id="errorResult"
 class="result error"
 >
-❌ Leider außerhalb unseres 10km Radius.
+❌ Leider außerhalb unseres Radius.
 </div>
 </div>
 </div>
@@ -981,45 +922,6 @@ LS
 </div>
 </div>
 </section>
-<!-- CTA -->
-<section class="section" id="cta">
-<div class="container cta-inner">
-<p
-class="section-eyebrow"
-style="text-align:center;"
->
-KONTAKT
-</p>
-<h2
-class="section-title"
-style="color:white;"
->
-Bereit für den Reifenwechsel?
-</h2>
-<p
-class="section-sub"
-style="color:rgba(255,255,255,0.55);margin:auto;"
->
-Jetzt Termin sichern und bequem zuhause wechseln lassen.
-</p>
-<div class="cta-actions">
-<a
-href="https://calendar.app.google/cqc5T14KyWctMVs58"
-target="_blank"
-class="btn-primary"
->
-Termin buchen
-</a>
-<a
-href="https://wa.me/4915215787806"
-target="_blank"
-class="btn-whatsapp"
->
-WhatsApp schreiben
-</a>
-</div>
-</div>
-</section>
 <!-- FOOTER -->
 <footer>
 <div class="footer-inner">
@@ -1038,7 +940,7 @@ function checkArea(){
     document
     .getElementById('addressInput')
     .value
-    .toLowerCase();
+    .trim();
     const success =
     document.getElementById('successResult');
     const error =
@@ -1046,37 +948,60 @@ function checkArea(){
     success.style.display = 'none';
     error.style.display = 'none';
     /*
-    10KM RADIUS
+    NUR ZAHLEN
+    */
+    const onlyNumbers = /^\d+$/;
+    if(!onlyNumbers.test(input)){
+        error.style.display = 'block';
+        error.innerHTML =
+        '❌ Bitte nur Zahlen eingeben.';
+        return;
+    }
+    /*
+    GENAU 5 STELLEN
+    */
+    if(input.length !== 5){
+        error.style.display = 'block';
+        error.innerHTML =
+        '❌ Bitte eine gültige 5-stellige PLZ eingeben.';
+        return;
+    }
+    /*
+    SERVICEGEBIET
     PEP EINKAUFSZENTRUM
     */
-    const validAreas = [
+    const validPLZ = [
         '81737',
         '81735',
         '81739',
         '81734',
-        'perlach',
-        'neuperlach',
-        'giesing',
-        'ramersdorf',
-        'berg am laim',
-        'trudering',
-        'haar',
-        'neubiberg',
-        'ottobrunn',
-        'putzbrunn',
-        'unterhaching',
-        'taufkirchen',
-        'waldperlach',
-        'fasangarten'
+        '81730',
+        '81825',
+        '81827',
+        '81829',
+        '81669',
+        '81671',
+        '81673',
+        '81675',
+        '81677',
+        '81539',
+        '81541',
+        '81549',
+        '85521',
+        '85540',
+        '85640',
+        '85579',
+        '82008',
+        '82024'
     ];
-    let found =
-    validAreas.some(area =>
-        input.includes(area)
-    );
-    if(found){
+    if(validPLZ.includes(input)){
         success.style.display = 'block';
+        success.innerHTML =
+        '✅ Ihre PLZ liegt im Servicegebiet.';
     }else{
         error.style.display = 'block';
+        error.innerHTML =
+        '❌ Leider außerhalb unseres Radius.';
     }
 }
 </script>
