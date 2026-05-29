@@ -15,8 +15,8 @@
 }
 :root{
     --orange:#ff6b00;
-    --orange-dark:#e55d00;
-    --black:#090909;
+    --orange-dark:#e55b00;
+    --black:#080808;
     --dark:#111111;
     --gray:#71717a;
     --light:#f4f4f5;
@@ -40,22 +40,22 @@ nav{
     left:0;
     right:0;
     height:76px;
-    background:rgba(9,9,9,0.92);
-    backdrop-filter:blur(16px);
+    background:rgba(8,8,8,0.92);
+    backdrop-filter:blur(18px);
     z-index:999;
     display:flex;
     align-items:center;
     justify-content:space-between;
-    padding:0 32px;
+    padding:0 34px;
     border-bottom:1px solid rgba(255,255,255,0.06);
 }
 .nav-logo img{
-    height:42px;
+    height:44px;
 }
 .nav-links{
     display:flex;
     align-items:center;
-    gap:32px;
+    gap:34px;
     list-style:none;
 }
 .nav-links a{
@@ -70,9 +70,9 @@ nav{
 }
 .nav-btn{
     background:var(--orange);
-    padding:12px 22px;
-    border-radius:14px;
     color:white !important;
+    padding:12px 24px;
+    border-radius:14px;
 }
 /* HERO */
 #hero{
@@ -94,20 +94,25 @@ nav{
 }
 .hero-glow{
     position:absolute;
-    width:800px;
-    height:800px;
-    background:radial-gradient(circle, rgba(255,107,0,0.13), transparent 70%);
-    right:-240px;
+    width:900px;
+    height:900px;
+    background:
+    radial-gradient(
+        circle,
+        rgba(255,107,0,0.14),
+        transparent 70%
+    );
+    right:-260px;
     top:50%;
     transform:translateY(-50%);
 }
 .hero-inner{
     position:relative;
     z-index:2;
-    max-width:1240px;
-    margin:auto;
     width:100%;
-    padding:80px 32px;
+    max-width:1280px;
+    margin:auto;
+    padding:80px 34px;
     display:grid;
     grid-template-columns:1fr 1fr;
     gap:80px;
@@ -117,8 +122,10 @@ nav{
     display:inline-flex;
     align-items:center;
     gap:10px;
-    background:rgba(255,107,0,0.12);
-    border:1px solid rgba(255,107,0,0.24);
+    background:
+    rgba(255,107,0,0.12);
+    border:
+    1px solid rgba(255,107,0,0.25);
     color:var(--orange);
     padding:8px 18px;
     border-radius:999px;
@@ -127,11 +134,11 @@ nav{
     margin-bottom:28px;
 }
 .hero-title{
-    font-size:clamp(46px,5vw,76px);
+    font-size:clamp(48px,5vw,80px);
     line-height:1.02;
     font-weight:900;
-    color:white;
     letter-spacing:-2px;
+    color:white;
     margin-bottom:24px;
 }
 .hero-title span{
@@ -159,88 +166,144 @@ nav{
     transition:.25s;
 }
 .btn-primary:hover{
-    background:var(--orange-dark);
     transform:translateY(-3px);
+    background:var(--orange-dark);
+    box-shadow:
+    0 12px 30px rgba(255,107,0,0.25);
 }
 .btn-secondary{
-    background:rgba(255,255,255,0.06);
-    border:1px solid rgba(255,255,255,0.08);
+    background:
+    rgba(255,255,255,0.06);
+    border:
+    1px solid rgba(255,255,255,0.08);
     color:white;
     text-decoration:none;
     padding:18px 34px;
     border-radius:14px;
     font-weight:700;
 }
-/* REALISTIC TIRE */
+/* REALISTIC WHEEL */
 .hero-wheel{
     display:flex;
     justify-content:center;
     align-items:center;
+    perspective:1200px;
 }
 .wheel{
-    width:430px;
-    height:430px;
+    width:460px;
+    height:460px;
     border-radius:50%;
     position:relative;
-    animation:wheelSpin 14s linear infinite;
-    filter:drop-shadow(0 0 50px rgba(255,107,0,0.2));
+    animation:wheelSpin 6s linear infinite;
+    filter:
+    drop-shadow(0 0 60px rgba(255,107,0,0.25))
+    drop-shadow(0 0 120px rgba(255,107,0,0.15));
 }
 .tire{
     position:absolute;
     inset:0;
     border-radius:50%;
     background:
-    radial-gradient(circle at center,#2e2e2e 0%,#191919 60%,#0d0d0d 100%);
-    border:30px solid #0a0a0a;
+    repeating-linear-gradient(
+        90deg,
+        #0d0d0d 0px,
+        #0d0d0d 10px,
+        #1a1a1a 10px,
+        #1a1a1a 20px
+    );
+    border:34px solid #050505;
+    box-shadow:
+    inset 0 0 0 8px #1a1a1a,
+    inset 0 0 40px rgba(255,255,255,0.05),
+    inset 0 0 80px rgba(0,0,0,0.9);
 }
 .tire::before{
     content:'';
     position:absolute;
-    inset:10px;
+    inset:18px;
     border-radius:50%;
-    border:10px dashed rgba(255,255,255,0.08);
+    border:
+    12px dashed rgba(255,255,255,0.08);
 }
 .rim{
     position:absolute;
-    inset:72px;
+    inset:74px;
     border-radius:50%;
     background:
-    radial-gradient(circle at center,#717171 0%,#393939 55%,#1a1a1a 100%);
+    radial-gradient(
+        circle at 30% 30%,
+        #c2c2c2 0%,
+        #666 30%,
+        #2f2f2f 60%,
+        #161616 100%
+    );
+    box-shadow:
+    inset 0 0 30px rgba(255,255,255,0.1),
+    inset 0 0 80px rgba(0,0,0,0.7);
 }
 .spoke{
     position:absolute;
-    width:18px;
-    height:150px;
-    background:linear-gradient(to bottom,#7b7b7b,#2e2e2e);
+    width:22px;
+    height:180px;
+    background:
+    linear-gradient(
+        to bottom,
+        #d7d7d7,
+        #666,
+        #2d2d2d
+    );
     left:50%;
     top:50%;
-    transform-origin:center -12px;
-    margin-left:-9px;
-    border-radius:20px;
+    margin-left:-11px;
+    transform-origin:center -18px;
+    border-radius:30px;
+    box-shadow:
+    inset 0 0 10px rgba(255,255,255,0.15),
+    0 0 8px rgba(0,0,0,0.5);
 }
-.spoke:nth-child(1){transform:rotate(0deg) translateY(-75px);}
-.spoke:nth-child(2){transform:rotate(60deg) translateY(-75px);}
-.spoke:nth-child(3){transform:rotate(120deg) translateY(-75px);}
-.spoke:nth-child(4){transform:rotate(180deg) translateY(-75px);}
-.spoke:nth-child(5){transform:rotate(240deg) translateY(-75px);}
-.spoke:nth-child(6){transform:rotate(300deg) translateY(-75px);}
+.spoke1{
+    transform:rotate(0deg) translateY(-90px);
+}
+.spoke2{
+    transform:rotate(60deg) translateY(-90px);
+}
+.spoke3{
+    transform:rotate(120deg) translateY(-90px);
+}
+.spoke4{
+    transform:rotate(180deg) translateY(-90px);
+}
+.spoke5{
+    transform:rotate(240deg) translateY(-90px);
+}
+.spoke6{
+    transform:rotate(300deg) translateY(-90px);
+}
 .center-cap{
     position:absolute;
-    width:110px;
-    height:110px;
+    width:120px;
+    height:120px;
     border-radius:50%;
-    background:
-    radial-gradient(circle at center,#ff9647 0%,#ff6b00 45%,#c44d00 100%);
     top:50%;
     left:50%;
     transform:translate(-50%,-50%);
-    border:10px solid #1b1b1b;
+    background:
+    radial-gradient(
+        circle at 30% 30%,
+        #ffb072,
+        #ff6b00 40%,
+        #b14400 100%
+    );
+    border:10px solid #1a1a1a;
+    box-shadow:
+    inset 0 0 20px rgba(255,255,255,0.15),
+    0 0 20px rgba(255,107,0,0.3);
 }
 .center-cap::before{
     content:'';
     position:absolute;
-    width:22px;
-    height:22px;
+    width:24px;
+    height:24px;
     background:#111;
     border-radius:50%;
     top:50%;
@@ -257,7 +320,7 @@ nav{
 }
 /* SECTION */
 .section{
-    padding:110px 32px;
+    padding:110px 34px;
 }
 .container{
     max-width:1240px;
@@ -268,9 +331,9 @@ nav{
 }
 .section-eyebrow{
     color:var(--orange);
-    font-size:12px;
     text-transform:uppercase;
     letter-spacing:2px;
+    font-size:12px;
     font-weight:800;
     margin-bottom:14px;
 }
@@ -298,7 +361,8 @@ nav{
 .stat{
     text-align:center;
     padding:42px 20px;
-    border-right:1px solid rgba(255,255,255,0.06);
+    border-right:
+    1px solid rgba(255,255,255,0.06);
 }
 .stat:last-child{
     border:none;
@@ -322,18 +386,25 @@ nav{
     border-radius:24px;
     padding:34px;
     transition:.25s;
-    border:1px solid rgba(0,0,0,0.05);
+    border:
+    1px solid rgba(0,0,0,0.05);
 }
 .service-card:hover{
     transform:translateY(-6px);
     background:white;
-    box-shadow:0 14px 40px rgba(0,0,0,0.08);
+    box-shadow:
+    0 14px 40px rgba(0,0,0,0.08);
 }
 .service-icon{
     width:60px;
     height:60px;
     border-radius:18px;
-    background:linear-gradient(135deg,var(--orange),#ff9c2e);
+    background:
+    linear-gradient(
+        135deg,
+        var(--orange),
+        #ff9c2e
+    );
     display:flex;
     align-items:center;
     justify-content:center;
@@ -355,56 +426,78 @@ nav{
     color:white;
 }
 #checker .section-sub{
-    color:rgba(255,255,255,0.5);
+    color:rgba(255,255,255,0.55);
 }
 .checker-box{
-    max-width:700px;
-    background:rgba(255,255,255,0.04);
-    border:1px solid rgba(255,255,255,0.08);
+    max-width:760px;
+    background:
+    rgba(255,255,255,0.04);
+    border:
+    1px solid rgba(255,255,255,0.08);
     border-radius:28px;
     padding:36px;
+    backdrop-filter:blur(10px);
 }
 .checker-input{
     width:100%;
-    height:62px;
-    border-radius:16px;
-    border:1px solid rgba(255,255,255,0.08);
-    background:#1b1b1b;
+    height:66px;
+    border-radius:18px;
+    border:
+    1px solid rgba(255,255,255,0.08);
+    background:#151515;
     color:white;
-    padding:0 20px;
+    padding:0 22px;
     font-size:16px;
     margin-bottom:18px;
 }
 .checker-input:focus{
     outline:none;
-    border-color:rgba(255,107,0,0.4);
+    border-color:
+    rgba(255,107,0,0.5);
+    box-shadow:
+    0 0 0 4px rgba(255,107,0,0.1);
 }
 .check-btn{
     width:100%;
-    height:62px;
+    height:66px;
     border:none;
-    border-radius:16px;
-    background:var(--orange);
+    border-radius:18px;
+    background:
+    linear-gradient(
+        135deg,
+        #ff6b00,
+        #ff8c2f
+    );
     color:white;
     font-size:16px;
     font-weight:700;
     cursor:pointer;
+    transition:.25s;
+}
+.check-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:
+    0 12px 30px rgba(255,107,0,0.25);
 }
 .result{
-    margin-top:20px;
-    padding:18px;
-    border-radius:16px;
     display:none;
+    margin-top:22px;
+    padding:18px;
+    border-radius:18px;
     font-weight:600;
 }
 .success{
-    background:rgba(34,197,94,0.12);
-    border:1px solid rgba(34,197,94,0.2);
+    background:
+    rgba(34,197,94,0.12);
+    border:
+    1px solid rgba(34,197,94,0.2);
     color:#22c55e;
 }
 .error{
-    background:rgba(239,68,68,0.12);
-    border:1px solid rgba(239,68,68,0.2);
+    background:
+    rgba(239,68,68,0.12);
+    border:
+    1px solid rgba(239,68,68,0.2);
     color:#ef4444;
 }
 /* REVIEWS */
@@ -413,20 +506,28 @@ nav{
 }
 .reviews-slider{
     overflow:hidden;
-    mask-image:linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    mask-image:
+    linear-gradient(
+        to right,
+        transparent,
+        black 10%,
+        black 90%,
+        transparent
+    );
 }
 .reviews-track{
     display:flex;
     gap:22px;
     width:max-content;
-    animation:reviewsScroll 38s linear infinite;
+    animation:reviews 38s linear infinite;
 }
 .review-card{
     width:320px;
     background:var(--light);
     border-radius:24px;
     padding:28px;
-    border:1px solid rgba(0,0,0,0.05);
+    border:
+    1px solid rgba(0,0,0,0.05);
 }
 .review-stars{
     color:#ffb400;
@@ -447,14 +548,19 @@ nav{
     width:48px;
     height:48px;
     border-radius:50%;
-    background:linear-gradient(135deg,var(--orange),#ff9c2e);
+    background:
+    linear-gradient(
+        135deg,
+        var(--orange),
+        #ff9c2e
+    );
     color:white;
     display:flex;
     align-items:center;
     justify-content:center;
     font-weight:800;
 }
-@keyframes reviewsScroll{
+@keyframes reviews{
     from{
         transform:translateX(0);
     }
@@ -464,7 +570,12 @@ nav{
 }
 /* CTA */
 #cta{
-    background:linear-gradient(140deg,#0f0500,#111);
+    background:
+    linear-gradient(
+        140deg,
+        #0d0500,
+        #111
+    );
     text-align:center;
     position:relative;
     overflow:hidden;
@@ -474,7 +585,12 @@ nav{
     position:absolute;
     width:700px;
     height:700px;
-    background:radial-gradient(circle, rgba(255,107,0,0.15), transparent 70%);
+    background:
+    radial-gradient(
+        circle,
+        rgba(255,107,0,0.15),
+        transparent 70%
+    );
     left:50%;
     top:50%;
     transform:translate(-50%,-50%);
@@ -501,8 +617,9 @@ nav{
 /* FOOTER */
 footer{
     background:var(--dark);
-    padding:40px 32px;
-    border-top:1px solid rgba(255,255,255,0.06);
+    padding:40px 34px;
+    border-top:
+    1px solid rgba(255,255,255,0.06);
 }
 .footer-inner{
     max-width:1240px;
@@ -568,23 +685,27 @@ nav{
 </style>
 </head>
 <body>
+<!-- NAV -->
 <nav>
 <a href="#" class="nav-logo">
 <img src="logo.png" alt="Logo">
 </a>
 <ul class="nav-links">
 <li><a href="#services">Leistungen</a></li>
-<li><a href="#checker">Prüfen</a></li>
+<li><a href="#checker">10km prüfen</a></li>
 <li><a href="#reviews">Bewertungen</a></li>
 <li>
-<a href="https://calendar.app.google/cqc5T14KyWctMVs58"
+<a
+href="https://calendar.app.google/cqc5T14KyWctMVs58"
 target="_blank"
-class="nav-btn">
+class="nav-btn"
+>
 Termin buchen
 </a>
 </li>
 </ul>
 </nav>
+<!-- HERO -->
 <section id="hero">
 <div class="hero-grid"></div>
 <div class="hero-glow"></div>
@@ -603,34 +724,40 @@ Schneller mobiler Räderwechsel ohne Werkstattbesuch.
 Wir kommen direkt zu Ihnen nach Hause oder zum Parkplatz.
 </p>
 <div class="hero-actions">
-<a href="https://calendar.app.google/cqc5T14KyWctMVs58"
+<a
+href="https://calendar.app.google/cqc5T14KyWctMVs58"
 target="_blank"
-class="btn-primary">
+class="btn-primary"
+>
 Jetzt Termin buchen
 </a>
-<a href="https://wa.me/4915215787806"
+<a
+href="https://wa.me/4915215787806"
 target="_blank"
-class="btn-secondary">
+class="btn-secondary"
+>
 WhatsApp
 </a>
 </div>
 </div>
+<!-- REALISTIC WHEEL -->
 <div class="hero-wheel">
 <div class="wheel">
 <div class="tire"></div>
 <div class="rim">
-<div class="spoke"></div>
-<div class="spoke"></div>
-<div class="spoke"></div>
-<div class="spoke"></div>
-<div class="spoke"></div>
-<div class="spoke"></div>
+<div class="spoke spoke1"></div>
+<div class="spoke spoke2"></div>
+<div class="spoke spoke3"></div>
+<div class="spoke spoke4"></div>
+<div class="spoke spoke5"></div>
+<div class="spoke spoke6"></div>
 <div class="center-cap"></div>
 </div>
 </div>
 </div>
 </div>
 </section>
+<!-- STATS -->
 <section class="stats">
 <div class="stats-grid">
 <div class="stat">
@@ -651,11 +778,12 @@ WhatsApp
 </div>
 </div>
 </section>
+<!-- SERVICES -->
 <section class="section" id="services">
 <div class="container">
 <div class="section-head">
 <p class="section-eyebrow">
-Leistungen
+LEISTUNGEN
 </p>
 <h2 class="section-title">
 Was wir anbieten
@@ -688,17 +816,18 @@ Einfacher und schneller Reifenwechsel direkt vor Ort.
 </div>
 </div>
 </section>
+<!-- CHECKER -->
 <section class="section" id="checker">
 <div class="container">
 <div class="section-head">
 <p class="section-eyebrow">
-Servicegebiet
+SERVICEGEBIET
 </p>
 <h2 class="section-title">
 Liegt Ihre Adresse im Umkreis?
 </h2>
 <p class="section-sub">
-Prüfen Sie sofort ob Ihre Adresse innerhalb unseres 10km Radius liegt.
+Prüfen Sie ob Ihre Adresse innerhalb unseres 10km Luftlinie Radius vom PEP Einkaufszentrum liegt.
 </p>
 </div>
 <div class="checker-box">
@@ -706,54 +835,249 @@ Prüfen Sie sofort ob Ihre Adresse innerhalb unseres 10km Radius liegt.
 type="text"
 id="addressInput"
 class="checker-input"
-placeholder="Adresse eingeben..."
+placeholder="PLZ oder Stadtteil eingeben..."
 >
-<button class="check-btn" onclick="checkArea()">
-Servicegebiet prüfen
+<button
+class="check-btn"
+onclick="checkArea()"
+>
+Jetzt prüfen
 </button>
-<div id="successResult" class="result success">
-✅ Ihre Adresse liegt im Servicegebiet.
+<div
+id="successResult"
+class="result success"
+>
+✅ Ihre Adresse liegt innerhalb unseres Servicegebiets.
 </div>
-<div id="errorResult" class="result error">
+<div
+id="errorResult"
+class="result error"
+>
 ❌ Leider außerhalb unseres 10km Radius.
 </div>
 </div>
 </div>
 </section>
+<!-- REVIEWS -->
+<section class="section" id="reviews">
+<div class="container">
+<div class="section-head">
+<p class="section-eyebrow">
+BEWERTUNGEN
+</p>
+<h2 class="section-title">
+Was Kunden sagen
+</h2>
+<p class="section-sub">
+Erfahrungen echter Kunden aus München & Umgebung.
+</p>
+</div>
+<div class="reviews-slider">
+<div class="reviews-track">
+<div class="review-card">
+<div class="review-stars">
+★★★★★
+</div>
+<div class="review-text">
+Mega praktisch nach der Arbeit. Keine Werkstatt mehr nötig.
+</div>
+<div class="review-user">
+<div class="review-avatar">
+MK
+</div>
+<div>
+<h4>Max Keller</h4>
+<span>BMW 3er</span>
+</div>
+</div>
+</div>
+<div class="review-card">
+<div class="review-stars">
+★★★★★
+</div>
+<div class="review-text">
+Sehr pünktlich und sauber gearbeitet.
+</div>
+<div class="review-user">
+<div class="review-avatar">
+LS
+</div>
+<div>
+<h4>Laura Schneider</h4>
+<span>Audi A4</span>
+</div>
+</div>
+</div>
+<div class="review-card">
+<div class="review-stars">
+★★★★★
+</div>
+<div class="review-text">
+Abends Termin bekommen und direkt zuhause gewechselt.
+</div>
+<div class="review-user">
+<div class="review-avatar">
+TB
+</div>
+<div>
+<h4>Tobias Braun</h4>
+<span>VW Golf</span>
+</div>
+</div>
+</div>
+<div class="review-card">
+<div class="review-stars">
+★★★★★
+</div>
+<div class="review-text">
+War schneller fertig als gedacht. Top Service.
+</div>
+<div class="review-user">
+<div class="review-avatar">
+AK
+</div>
+<div>
+<h4>Anna Koch</h4>
+<span>Mini Cooper</span>
+</div>
+</div>
+</div>
+<!-- DUPLIKATE -->
+<div class="review-card">
+<div class="review-stars">
+★★★★★
+</div>
+<div class="review-text">
+Mega praktisch nach der Arbeit. Keine Werkstatt mehr nötig.
+</div>
+<div class="review-user">
+<div class="review-avatar">
+MK
+</div>
+<div>
+<h4>Max Keller</h4>
+<span>BMW 3er</span>
+</div>
+</div>
+</div>
+<div class="review-card">
+<div class="review-stars">
+★★★★★
+</div>
+<div class="review-text">
+Sehr pünktlich und sauber gearbeitet.
+</div>
+<div class="review-user">
+<div class="review-avatar">
+LS
+</div>
+<div>
+<h4>Laura Schneider</h4>
+<span>Audi A4</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA -->
+<section class="section" id="cta">
+<div class="container cta-inner">
+<p
+class="section-eyebrow"
+style="text-align:center;"
+>
+KONTAKT
+</p>
+<h2
+class="section-title"
+style="color:white;"
+>
+Bereit für den Reifenwechsel?
+</h2>
+<p
+class="section-sub"
+style="color:rgba(255,255,255,0.55);margin:auto;"
+>
+Jetzt Termin sichern und bequem zuhause wechseln lassen.
+</p>
+<div class="cta-actions">
+<a
+href="https://calendar.app.google/cqc5T14KyWctMVs58"
+target="_blank"
+class="btn-primary"
+>
+Termin buchen
+</a>
+<a
+href="https://wa.me/4915215787806"
+target="_blank"
+class="btn-whatsapp"
+>
+WhatsApp schreiben
+</a>
+</div>
+</div>
+</section>
+<!-- FOOTER -->
+<footer>
+<div class="footer-inner">
+<div class="footer-logo">
+<img src="logo.png" alt="Logo">
+</div>
+<div class="footer-copy">
+© 2026 Mobiler Reifenwechsel München
+</div>
+</div>
+</footer>
+<!-- SCRIPT -->
 <script>
 function checkArea(){
-const input = document
-.getElementById('addressInput')
-.value
-.toLowerCase();
-const success =
-document.getElementById('successResult');
-const error =
-document.getElementById('errorResult');
-success.style.display = 'none';
-error.style.display = 'none';
-const validAreas = [
-'perlach',
-'neuperlach',
-'giesing',
-'ramersdorf',
-'ottobrunn',
-'putzbrunn',
-'neubiberg',
-'trudering',
-'haar',
-'berg am laim',
-'unterhaching',
-'taufkirchen'
-];
-let found = validAreas.some(area =>
-input.includes(area)
-);
-if(found){
-success.style.display = 'block';
-}else{
-error.style.display = 'block';
-}
+    const input =
+    document
+    .getElementById('addressInput')
+    .value
+    .toLowerCase();
+    const success =
+    document.getElementById('successResult');
+    const error =
+    document.getElementById('errorResult');
+    success.style.display = 'none';
+    error.style.display = 'none';
+    /*
+    10KM RADIUS
+    PEP EINKAUFSZENTRUM
+    */
+    const validAreas = [
+        '81737',
+        '81735',
+        '81739',
+        '81734',
+        'perlach',
+        'neuperlach',
+        'giesing',
+        'ramersdorf',
+        'berg am laim',
+        'trudering',
+        'haar',
+        'neubiberg',
+        'ottobrunn',
+        'putzbrunn',
+        'unterhaching',
+        'taufkirchen',
+        'waldperlach',
+        'fasangarten'
+    ];
+    let found =
+    validAreas.some(area =>
+        input.includes(area)
+    );
+    if(found){
+        success.style.display = 'block';
+    }else{
+        error.style.display = 'block';
+    }
 }
 </script>
 </body>
