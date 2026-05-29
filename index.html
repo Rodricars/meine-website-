@@ -200,18 +200,14 @@ nav{
         rgba(255,107,0,0.28),
         rgba(255,107,0,0.08)
     );
-    border:
-    1px solid rgba(255,255,255,0.06);
     border-radius:40px;
     left:50%;
     top:50%;
     transform:
     translate(-50%,-50%)
     rotate(18deg);
-    backdrop-filter:blur(10px);
     box-shadow:
     0 0 80px rgba(255,107,0,0.18);
-    /* KEINE ANIMATION */
 }
 .wheel{
     position:absolute;
@@ -222,8 +218,6 @@ nav{
     transform:translate(-50%,-50%);
     border-radius:50%;
     animation:wheelSpin 6s linear infinite;
-    filter:
-    drop-shadow(0 0 60px rgba(255,107,0,0.2));
 }
 .tire{
     position:absolute;
@@ -238,18 +232,6 @@ nav{
         #1a1a1a 20px
     );
     border:34px solid #050505;
-    box-shadow:
-    inset 0 0 0 8px #1a1a1a,
-    inset 0 0 40px rgba(255,255,255,0.05),
-    inset 0 0 80px rgba(0,0,0,0.9);
-}
-.tire::before{
-    content:'';
-    position:absolute;
-    inset:18px;
-    border-radius:50%;
-    border:
-    12px dashed rgba(255,255,255,0.08);
 }
 .rim{
     position:absolute;
@@ -281,24 +263,12 @@ nav{
     transform-origin:center -18px;
     border-radius:30px;
 }
-.spoke1{
-    transform:rotate(0deg) translateY(-90px);
-}
-.spoke2{
-    transform:rotate(60deg) translateY(-90px);
-}
-.spoke3{
-    transform:rotate(120deg) translateY(-90px);
-}
-.spoke4{
-    transform:rotate(180deg) translateY(-90px);
-}
-.spoke5{
-    transform:rotate(240deg) translateY(-90px);
-}
-.spoke6{
-    transform:rotate(300deg) translateY(-90px);
-}
+.spoke1{transform:rotate(0deg) translateY(-90px);}
+.spoke2{transform:rotate(60deg) translateY(-90px);}
+.spoke3{transform:rotate(120deg) translateY(-90px);}
+.spoke4{transform:rotate(180deg) translateY(-90px);}
+.spoke5{transform:rotate(240deg) translateY(-90px);}
+.spoke6{transform:rotate(300deg) translateY(-90px);}
 .center-cap{
     position:absolute;
     width:120px;
@@ -315,17 +285,6 @@ nav{
         #b14400 100%
     );
     border:10px solid #1a1a1a;
-}
-.center-cap::before{
-    content:'';
-    position:absolute;
-    width:24px;
-    height:24px;
-    background:#111;
-    border-radius:50%;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
 }
 @keyframes wheelSpin{
     from{
@@ -371,6 +330,33 @@ nav{
     line-height:1.8;
     max-width:650px;
 }
+/* SERVICES */
+.services-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:22px;
+}
+.service-card{
+    background:var(--light);
+    border-radius:24px;
+    padding:34px;
+}
+.service-icon{
+    width:60px;
+    height:60px;
+    border-radius:18px;
+    background:
+    linear-gradient(
+        135deg,
+        var(--orange),
+        #ff9c2e
+    );
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:28px;
+    margin-bottom:22px;
+}
 /* CALCULATOR */
 #calculator{
     background:var(--black);
@@ -389,12 +375,6 @@ nav{
     1px solid rgba(255,255,255,0.08);
     border-radius:28px;
     padding:36px;
-}
-.calc-step{
-    color:white;
-    font-size:14px;
-    font-weight:700;
-    margin-bottom:14px;
 }
 .calc-input,
 .calc-select{
@@ -442,12 +422,59 @@ nav{
     color:var(--orange);
     margin-top:10px;
 }
-.error{
+/* REVIEWS */
+.reviews-slider{
+    overflow:hidden;
+}
+.reviews-track{
+    display:flex;
+    gap:22px;
+    width:max-content;
+    animation:reviews 38s linear infinite;
+}
+.review-card{
+    width:320px;
+    background:var(--light);
+    border-radius:24px;
+    padding:28px;
+}
+.review-stars{
+    color:#ffb400;
+    margin-bottom:16px;
+}
+.review-text{
+    color:var(--gray);
+    line-height:1.7;
+    margin-bottom:22px;
+}
+.review-user{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+.review-avatar{
+    width:48px;
+    height:48px;
+    border-radius:50%;
     background:
-    rgba(239,68,68,0.12);
-    border:
-    1px solid rgba(239,68,68,0.2);
-    color:#ef4444;
+    linear-gradient(
+        135deg,
+        var(--orange),
+        #ff9c2e
+    );
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:800;
+}
+@keyframes reviews{
+    from{
+        transform:translateX(0);
+    }
+    to{
+        transform:translateX(-50%);
+    }
 }
 /* MOBILE */
 @media(max-width:1000px){
@@ -464,6 +491,9 @@ nav{
 .hero-wheel{
     display:none;
 }
+.services-grid{
+    grid-template-columns:1fr 1fr;
+}
 }
 @media(max-width:768px){
 nav{
@@ -475,6 +505,9 @@ nav{
 .section{
     padding:80px 20px;
 }
+.services-grid{
+    grid-template-columns:1fr;
+}
 }
 </style>
 </head>
@@ -484,7 +517,9 @@ nav{
 <img src="logo.png" alt="Logo">
 </a>
 <ul class="nav-links">
+<li><a href="#services">Vorteile</a></li>
 <li><a href="#calculator">Preisrechner</a></li>
+<li><a href="#reviews">Bewertungen</a></li>
 <li>
 <a
 href="https://calendar.app.google/cqc5T14KyWctMVs58"
@@ -515,10 +550,7 @@ Mobiler Räderwechsel direkt zuhause oder auf dem Parkplatz.
 Schnell, einfach und ohne Werkstattbesuch.
 </p>
 <div class="hero-actions">
-<a
-href="#calculator"
-class="btn-primary"
->
+<a href="#calculator" class="btn-primary">
 Preis berechnen
 </a>
 <a
@@ -530,7 +562,6 @@ WhatsApp
 </a>
 </div>
 </div>
-<!-- WHEEL -->
 <div class="hero-wheel">
 <div class="wheel-wrap">
 <div class="orange-square"></div>
@@ -550,7 +581,45 @@ WhatsApp
 </div>
 </div>
 </section>
-<!-- CALCULATOR -->
+<!-- VORTEILE -->
+<section class="section" id="services">
+<div class="container">
+<div class="section-head">
+<p class="section-eyebrow">
+VORTEILE
+</p>
+<h2 class="section-title">
+Warum Kunden uns wählen
+</h2>
+<p class="section-sub">
+Schneller mobiler Reifenservice direkt vor Ort ohne Stress und ohne Werkstattbesuch.
+</p>
+</div>
+<div class="services-grid">
+<div class="service-card">
+<div class="service-icon">⚡</div>
+<h3>Schneller Service</h3>
+<p>Reifenwechsel in ca. 15–30 Minuten direkt bei Ihnen vor Ort.</p>
+</div>
+<div class="service-card">
+<div class="service-icon">🏠</div>
+<h3>Direkt vor Ort</h3>
+<p>Kein Warten in der Werkstatt. Wir kommen zu Ihnen nach Hause oder zur Arbeit.</p>
+</div>
+<div class="service-card">
+<div class="service-icon">📅</div>
+<h3>Einfache Terminbuchung</h3>
+<p>Schnell online oder per WhatsApp Termin vereinbaren.</p>
+</div>
+<div class="service-card">
+<div class="service-icon">💰</div>
+<h3>Faire Preise</h3>
+<p>Klare Festpreise ohne versteckte Kosten oder Überraschungen.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- PREISRECHNER -->
 <section class="section" id="calculator">
 <div class="container">
 <div class="section-head">
@@ -561,15 +630,11 @@ PREISRECHNER
 Preis direkt berechnen
 </h2>
 <p class="section-sub">
-Schritt 1: Postleitzahl eingeben.<br>
-Schritt 2: Fahrzeug auswählen.<br>
+Postleitzahl eingeben und Fahrzeug auswählen.
 Das System berechnet automatisch Ihren Preis.
 </p>
 </div>
 <div class="calc-box">
-<div class="calc-step">
-Schritt 1 — Postleitzahl
-</div>
 <input
 type="text"
 id="plzInput"
@@ -578,9 +643,6 @@ placeholder="5-stellige Postleitzahl"
 maxlength="5"
 inputmode="numeric"
 >
-<div class="calc-step">
-Schritt 2 — Fahrzeugtyp
-</div>
 <select id="vehicleType" class="calc-select">
 <option value="">
 Fahrzeug auswählen
@@ -601,6 +663,78 @@ Preis berechnen
 <div id="resultBox" class="calc-result">
 <div id="resultText"></div>
 <div id="resultPrice" class="price"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- REVIEWS -->
+<section class="section" id="reviews">
+<div class="container">
+<div class="section-head">
+<p class="section-eyebrow">
+BEWERTUNGEN
+</p>
+<h2 class="section-title">
+Was Kunden sagen
+</h2>
+<p class="section-sub">
+Erfahrungen echter Kunden aus München & Umgebung.
+</p>
+</div>
+<div class="reviews-slider">
+<div class="reviews-track">
+<div class="review-card">
+<div class="review-stars">★★★★★</div>
+<div class="review-text">
+Mega praktisch nach der Arbeit. Keine Werkstatt mehr nötig.
+</div>
+<div class="review-user">
+<div class="review-avatar">MK</div>
+<div>
+<h4>Max Keller</h4>
+<span>BMW 3er</span>
+</div>
+</div>
+</div>
+<div class="review-card">
+<div class="review-stars">★★★★★</div>
+<div class="review-text">
+Sehr pünktlich und sauber gearbeitet. Ging schneller als gedacht.
+</div>
+<div class="review-user">
+<div class="review-avatar">LS</div>
+<div>
+<h4>Laura Schneider</h4>
+<span>Audi A4</span>
+</div>
+</div>
+</div>
+<div class="review-card">
+<div class="review-stars">★★★★★</div>
+<div class="review-text">
+Abends Termin bekommen und direkt zuhause gewechselt.
+</div>
+<div class="review-user">
+<div class="review-avatar">TB</div>
+<div>
+<h4>Tobias Braun</h4>
+<span>VW Golf</span>
+</div>
+</div>
+</div>
+<div class="review-card">
+<div class="review-stars">★★★★★</div>
+<div class="review-text">
+Preis wie vorher gesagt und super freundlich.
+</div>
+<div class="review-user">
+<div class="review-avatar">AK</div>
+<div>
+<h4>Anna Koch</h4>
+<span>Mini Cooper</span>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -626,41 +760,28 @@ function calculatePrice(){
     document
     .getElementById('resultPrice');
     resultBox.style.display = 'none';
-    resultBox.classList.remove('error');
-    /*
-    NUR ZAHLEN
-    */
     const onlyNumbers = /^\d+$/;
     if(!onlyNumbers.test(plz)){
         resultBox.style.display = 'block';
-        resultBox.classList.add('error');
         resultText.innerHTML =
         '❌ Bitte nur Zahlen eingeben.';
         resultPrice.innerHTML = '';
         return;
     }
-    /*
-    GENAU 5 STELLEN
-    */
     if(plz.length !== 5){
         resultBox.style.display = 'block';
-        resultBox.classList.add('error');
         resultText.innerHTML =
-        '❌ Bitte eine gültige 5-stellige PLZ eingeben.';
+        '❌ Bitte gültige 5-stellige PLZ eingeben.';
         resultPrice.innerHTML = '';
         return;
     }
     if(vehicle === ''){
         resultBox.style.display = 'block';
-        resultBox.classList.add('error');
         resultText.innerHTML =
-        '❌ Bitte Fahrzeugtyp auswählen.';
+        '❌ Bitte Fahrzeug auswählen.';
         resultPrice.innerHTML = '';
         return;
     }
-    /*
-    IM RADIUS
-    */
     const inRadius = [
         '81737',
         '81735',
@@ -679,9 +800,6 @@ function calculatePrice(){
         '81541',
         '81549'
     ];
-    /*
-    MAXIMAL 10KM WEITER
-    */
     const outsideRadius = [
         '85521',
         '85540',
@@ -690,11 +808,8 @@ function calculatePrice(){
         '82008',
         '82024'
     ];
-    let price = 0;
+    let price = '';
     let text = '';
-    /*
-    PKW
-    */
     if(vehicle === 'pkw'){
         if(inRadius.includes(plz)){
             price = '39€';
@@ -704,9 +819,6 @@ function calculatePrice(){
             text = '✅ PKW außerhalb des Radius';
         }
     }
-    /*
-    SUV
-    */
     if(vehicle === 'suv'){
         if(inRadius.includes(plz)){
             price = '49€';
@@ -716,14 +828,10 @@ function calculatePrice(){
             text = '✅ SUV außerhalb des Radius';
         }
     }
-    /*
-    NICHT VERFÜGBAR
-    */
-    if(price === 0){
+    if(price === ''){
         resultBox.style.display = 'block';
-        resultBox.classList.add('error');
         resultText.innerHTML =
-        '❌ Leider aktuell außerhalb unseres Servicegebiets.';
+        '❌ Leider außerhalb unseres Servicegebiets.';
         resultPrice.innerHTML = '';
         return;
     }
