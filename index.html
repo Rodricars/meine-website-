@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobiler Reifenwechsel München</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --orange: #ff6b00;
+            --orange-dark: #d95c00;
+            --orange-glow: rgba(255,107,0,0.35);
+            --black: #080808;
+            --dark: #111111;
+            --dark-2: #1a1a1a;
+            --dark-3: #232323;
+            --gray: #6b7280;
+            --gray-light: #9ca3af;
+            --light: #f5f5f5;
+            --white: #ffffff;
+            --radius: 18px;
+            --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font);
+            background: var(--white);
+            color: var(--black);
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* ─────────────── NAV ─────────────── */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 999;
+            height: 72px;
+            background: rgba(8,8,8,0.92);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 32px;
+        }
+
+        .nav-logo img {
+            height: 46px;
+            width: auto;
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: rgba(255,255,255,0.65);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.2px;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover { color: white; }
+
+        .nav-cta {
+            background: var(--orange);
+            color: white !important;
+            padding: 10px 22px;
+            border-radius: 10px;
+            font-weight: 700 !important;
+            font-size: 14px !important;
+            transition: background 0.2s, box-shadow 0.2s !important;
+            box-shadow: 0 4px 16px var(--orange-glow);
+        }
+
+        .nav-cta:hover {
+            background: var(--orange-dark) !important;
+            box-shadow: 0 6px 24px var(--orange-glow) !important;
+        }
+
+        /* ─────────────── HERO ─────────────── */
+        #hero {
+            min-height: 100vh;
+            background: var(--black);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 72px;
+        }
+
+        .hero-bg-grid {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255,107,0,0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,107,0,0.04) 1px, transparent 1px);
+            background-size: 64px 64px;
+            mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+        }
+
+        .hero-glow {
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(255,107,0,0.1) 0%, transparent 65%);
+            top: 50%;
+            right: -100px;
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
+
+        .hero-inner {
+            position: relative;
+            z-index: 2;
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 80px 32px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+            width: 100%;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,107,0,0.12);
+            border: 1px solid rgba(255,107,0,0.28);
+            color: var(--orange);
+            padding: 7px 16px;
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 28px;
+        }
+
+        .hero-title {
+            font-size: clamp(36px, 4.5vw, 66px);
+            font-weight: 900;
+            color: white;
+            line-height: 1.08;
+            letter-spacing: -1.5px;
+            margin-bottom: 24px;
+        }
+
+        .hero-title em {
+            font-style: normal;
+            color: var(--orange);
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: rgba(255,255,255,0.55);
+            line-height: 1.75;
+            margin-bottom: 44px;
+            max-width: 460px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--orange);
+            color: white;
+            padding: 17px 34px;
+            border-radius: 13px;
+            font-weight: 700;
+            font-size: 16px;
+            text-decoration: none;
+            transition: all 0.22s;
+            box-shadow: 0 8px 28px var(--orange-glow);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: var(--orange-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 14px 36px rgba(255,107,0,0.45);
+        }
+
+        .btn-ghost {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.14);
+            color: white;
+            padding: 17px 34px;
+            border-radius: 13px;
+            font-weight: 600;
+            font-size: 16px;
+            text-decoration: none;
+            transition: all 0.22s;
+        }
+
+        .btn-ghost:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.24);
+        }
+
+        /* Tire SVG Visual */
+        .hero-visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .wheel-wrap {
+            position: relative;
+            width: 100%;
+            max-width: 440px;
+        }
+
+        .wheel-wrap svg {
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0 0 60px rgba(255,107,0,0.18));
+        }
+
+        .wheel-rim {
+            animation: spin 18s linear infinite;
+            transform-origin: 200px 200px;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to   { transform: rotate(360deg); }
+        }
+
+        /* ─────────────── STATS BAR ─────────────── */
+        .stats-bar {
+            background: var(--dark-2);
+            border-top: 1px solid rgba(255,255,255,0.06);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .stats-inner {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 32px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .stat-item {
+            padding: 32px 24px;
+            text-align: center;
+            border-right: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .stat-item:last-child { border-right: none; }
+
+        .stat-num {
+            font-size: 38px;
+            font-weight: 900;
+            color: var(--orange);
+            line-height: 1;
+            letter-spacing: -1px;
+        }
+
+        .stat-label {
+            font-size: 13px;
+            color: rgba(255,255,255,0.45);
+            font-weight: 500;
+            margin-top: 6px;
+        }
+
+        /* ─────────────── SECTION DEFAULTS ─────────────── */
+        .section {
+            padding: 108px 32px;
+        }
+
+        .container {
+            max-width: 1240px;
+            margin: 0 auto;
+        }
+
+        .section-eyebrow {
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--orange);
+            margin-bottom: 14px;
+        }
+
+        .section-title {
+            font-size: clamp(28px, 3.5vw, 50px);
+            font-weight: 900;
+            color: var(--black);
+            letter-spacing: -1px;
+            line-height: 1.15;
+            margin-bottom: 18px;
+        }
+
+        .section-sub {
+            font-size: 18px;
+            color: var(--gray);
+            line-height: 1.7;
+            max-width: 560px;
+        }
+
+        .section-head { margin-bottom: 60px; }
+
+        /* ─────────────── SERVICES ─────────────── */
+        #services { background: var(--white); }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .service-card {
+            background: var(--light);
+            border: 1px solid rgba(0,0,0,0.06);
+            border-radius: var(--radius);
+            padding: 36px 30px;
+            transition: all 0.28s cubic-bezier(.4,0,.2,1);
+            cursor: default;
+        }
+
+        .service-card:hover {
+            background: white;
+            border-color: rgba(255,107,0,0.22);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.07);
+            transform: translateY(-5px);
+        }
+
+        .service-card-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, #ff6b00 0%, #ff9c2e 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 22px;
+            box-shadow: 0 6px 20px rgba(255,107,0,0.3);
+        }
+
+        .service-card-icon svg {
+            width: 28px;
+            height: 28px;
+            fill: white;
+        }
+
+        .service-card h3 {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--black);
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .service-card p {
+            font-size: 14px;
+            color: var(--gray);
+            line-height: 1.65;
+        }
+
+        /* ─────────────── HOW IT WORKS ─────────────── */
+        #how-it-works { background: var(--dark); }
+
+        #how-it-works .section-title { color: white; }
+        #how-it-works .section-sub { color: rgba(255,255,255,0.5); }
+        #how-it-works .section-eyebrow { color: var(--orange); }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .step-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: var(--radius);
+            padding: 44px 36px;
+            text-align: center;
+            transition: all 0.28s;
+            position: relative;
+        }
+
+        .step-card:hover {
+            background: rgba(255,107,0,0.07);
+            border-color: rgba(255,107,0,0.25);
+            transform: translateY(-4px);
+        }
+
+        .step-num {
+            width: 72px;
+            height: 72px;
+            background: linear-gradient(135deg, var(--orange) 0%, #ff9c2e 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            font-weight: 900;
+            color: white;
+            margin: 0 auto 28px;
+            box-shadow: 0 10px 30px var(--orange-glow);
+        }
+
+        .step-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 14px;
+        }
+
+        .step-card p {
+            font-size: 15px;
+            color: rgba(255,255,255,0.5);
+            line-height: 1.65;
+        }
+
+        /* ─────────────── NOT AVAILABLE ─────────────── */
+        #not-available { background: var(--light); }
+
+        .not-available-layout {
+            display: block;
+        }
+
+        .not-available-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .not-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background: white;
+            border: 1px solid rgba(0,0,0,0.07);
+            border-radius: 12px;
+            padding: 18px 22px;
+            font-size: 15px;
+            font-weight: 500;
+            color: #555;
+            transition: all 0.2s;
+        }
+
+        .not-item:hover {
+            border-color: rgba(239,68,68,0.2);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+        }
+
+        .not-x {
+            width: 34px;
+            height: 34px;
+            background: rgba(239,68,68,0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ef4444;
+            font-size: 17px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+#pricing { background: var(--black); }
+
+        #pricing .section-title { color: white; }
+        #pricing .section-sub { color: rgba(255,255,255,0.5); }
+
+        .pricing-wrap {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            max-width: 720px;
+        }
+
+        .pricing-card {
+            border-radius: 24px;
+            padding: 48px 40px;
+            border: 1px solid rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.04);
+            transition: all 0.3s;
+        }
+
+        .pricing-card.featured {
+            background: linear-gradient(145deg, rgba(255,107,0,0.14) 0%, rgba(255,107,0,0.04) 100%);
+            border-color: rgba(255,107,0,0.38);
+            position: relative;
+        }
+
+        .pricing-card.featured::before {
+            content: 'Beliebt';
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--orange);
+            color: white;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 5px 18px;
+            border-radius: 100px;
+            letter-spacing: 0.5px;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 56px rgba(0,0,0,0.35);
+            border-color: rgba(255,107,0,0.5);
+        }
+
+        .pricing-emoji { font-size: 44px; margin-bottom: 20px; display: block; }
+
+        .pricing-type {
+            font-size: 22px;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 8px;
+        }
+
+        .pricing-price {
+            font-size: 58px;
+            font-weight: 900;
+            color: var(--orange);
+            letter-spacing: -2px;
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .pricing-hint {
+            font-size: 14px;
+            color: rgba(255,255,255,0.35);
+            margin-bottom: 28px;
+        }
+
+        .pricing-divider {
+            border: none;
+            border-top: 1px solid rgba(255,255,255,0.07);
+            margin-bottom: 22px;
+        }
+
+        .pricing-note {
+            font-size: 14px;
+            color: rgba(255,255,255,0.55);
+            line-height: 1.65;
+        }
+
+        /* ─────────────── AREA ─────────────── */
+        #area { background: var(--white); }
+
+        .area-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .area-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .area-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
+            background: var(--light);
+            border-radius: 14px;
+            padding: 24px;
+            border: 1px solid transparent;
+            transition: all 0.22s;
+        }
+
+        .area-card:hover {
+            background: white;
+            border-color: rgba(255,107,0,0.18);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.07);
+        }
+
+        .area-card-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--orange), #ff9c2e);
+            border-radius: 13px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            flex-shrink: 0;
+        }
+
+        .area-card-text h4 {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--black);
+            margin-bottom: 5px;
+        }
+
+        .area-card-text p {
+            font-size: 14px;
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        .area-map-box {
+            background: var(--dark);
+            border-radius: 24px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .map-visual {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* ─────────────── CTA ─────────────── */
+        #cta {
+            background: linear-gradient(140deg, #0d0500 0%, #1a0800 40%, #0a0a0a 100%);
+            padding: 120px 32px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #cta::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(255,107,0,0.14) 0%, transparent 68%);
+            pointer-events: none;
+        }
+
+        #cta .section-title { color: white; max-width: 680px; margin: 0 auto 18px; }
+        #cta .section-sub { color: rgba(255,255,255,0.5); margin: 0 auto 52px; }
+
+        .cta-actions {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #25d366;
+            color: white;
+            padding: 17px 34px;
+            border-radius: 13px;
+            font-weight: 700;
+            font-size: 16px;
+            text-decoration: none;
+            transition: all 0.22s;
+            box-shadow: 0 8px 24px rgba(37,211,102,0.3);
+        }
+
+        .btn-whatsapp:hover {
+            background: #1fb855;
+            transform: translateY(-2px);
+            box-shadow: 0 14px 32px rgba(37,211,102,0.4);
+        }
+
+        /* ─────────────── FOOTER ─────────────── */
+        footer {
+            background: var(--dark);
+            border-top: 1px solid rgba(255,255,255,0.06);
+            padding: 36px 32px;
+        }
+
+        .footer-inner {
+            max-width: 1240px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer-logo img { height: 38px; width: auto; }
+
+        .footer-copy {
+            font-size: 13px;
+            color: rgba(255,255,255,0.35);
+        }
+
+        .footer-impressum {
+            font-size: 11px;
+            color: rgba(255,255,255,0.2);
+            margin-top: 10px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .footer-impressum a {
+            color: rgba(255,255,255,0.25);
+            text-decoration: none;
+        }
+
+        .footer-impressum a:hover {
+            color: rgba(255,255,255,0.45);
+            text-decoration: underline;
+        }
+
+        /* ─────────────── RESPONSIVE ─────────────── */
+        @media (max-width: 1024px) {
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 0 20px; }
+            .nav-links { display: none; }
+
+            .hero-inner {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding: 60px 20px;
+            }
+            .hero-visual { display: none; }
+            .hero-actions { justify-content: center; }
+            .hero-subtitle { margin: 0 auto 44px; }
+
+            .stats-inner { grid-template-columns: repeat(2, 1fr); }
+            .stat-item:nth-child(2) { border-right: none; }
+
+            .section { padding: 72px 20px; }
+
+            .services-grid { grid-template-columns: 1fr; }
+            .steps-grid { grid-template-columns: 1fr; }
+
+
+            .pricing-wrap { grid-template-columns: 1fr; max-width: 100%; }
+
+            .area-layout { grid-template-columns: 1fr; }
+            .area-map-box { display: none; }
+
+            .cta-actions { flex-direction: column; align-items: center; }
+            .footer-inner { justify-content: center; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ────────── NAVIGATION ────────── -->
+<nav>
+    <a href="#" class="nav-logo" aria-label="Home">
+        <img src="assets/logo.png" alt="Mobiler Reifenwechsel München">
+    </a>
+    <ul class="nav-links">
+        <li><a href="#services">Leistungen</a></li>
+        <li><a href="#how-it-works">Ablauf</a></li>
+        <li><a href="#pricing">Preise</a></li>
+        <li><a href="#area">Einsatzgebiet</a></li>
+        <li><a href="https://calendar.app.google/cqc5T14KyWctMVs58" target="_blank" rel="noopener" class="nav-cta">Termin buchen</a></li>
+    </ul>
+</nav>
+
+<!-- ────────── HERO ────────── -->
+<section id="hero">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-inner">
+        <div class="hero-text">
+            <div class="hero-badge">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor"><circle cx="6" cy="6" r="6"/></svg>
+                München-Perlach &amp; Umgebung
+            </div>
+            <h1 class="hero-title">
+                Reifenwechsel —<br>
+                <em>direkt bei<br>Ihnen</em> vor Ort
+            </h1>
+            <p class="hero-subtitle">
+                Schnell, zuverlässig und ohne Werkstattbesuch. Wir kommen zu Ihnen nach Hause — abends, wenn es Ihnen passt.
+            </p>
+            <div class="hero-actions">
+                <a href="https://calendar.app.google/cqc5T14KyWctMVs58" target="_blank" rel="noopener" class="btn-primary">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    Jetzt Termin buchen
+                </a>
+                <a href="https://wa.me/4915215787806" target="_blank" rel="noopener" class="btn-ghost">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 1C5.928 1 1 5.929 1 12c0 1.856.487 3.6 1.338 5.116L1 23l6.044-1.323A10.957 10.957 0 0011.999 23C18.07 23 23 18.07 23 12S18.07 1 11.999 1zm0 20c-1.676 0-3.24-.45-4.59-1.233l-.329-.196-3.588.787.817-3.501-.213-.342A8.986 8.986 0 013 12c0-4.963 4.037-9 9-9s9 4.037 9 9-4.037 9-9 9z"/></svg>
+                    WhatsApp
+                </a>
+            </div>
+        </div>
+
+        <div class="hero-visual">
+            <div class="wheel-wrap">
+                <!-- Tire & Rim SVG Illustration -->
+                <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <defs>
+                        <radialGradient id="tireGrad" cx="38%" cy="35%">
+                            <stop offset="0%" stop-color="#2e2e2e"/>
+                            <stop offset="100%" stop-color="#0a0a0a"/>
+                        </radialGradient>
+                        <radialGradient id="rimGrad" cx="35%" cy="32%">
+                            <stop offset="0%" stop-color="#606060"/>
+                            <stop offset="60%" stop-color="#282828"/>
+                            <stop offset="100%" stop-color="#141414"/>
+                        </radialGradient>
+                        <radialGradient id="hubGrad" cx="40%" cy="38%">
+                            <stop offset="0%" stop-color="#707070"/>
+                            <stop offset="100%" stop-color="#222"/>
+                        </radialGradient>
+                    </defs>
+
+                    <!-- Tire body -->
+                    <circle cx="200" cy="200" r="196" fill="url(#tireGrad)"/>
+                    <!-- Tire highlight ring -->
+                    <circle cx="200" cy="200" r="196" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+                    <!-- Tire inner edge -->
+                    <circle cx="200" cy="200" r="162" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="3"/>
+
+                    <!-- Tread marks (dashes around circumference) -->
+                    <circle cx="200" cy="200" r="184" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="8" stroke-dasharray="14 10"/>
+                    <circle cx="200" cy="200" r="172" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="5" stroke-dasharray="8 14"/>
+
+                    <!-- Rim group (this part spins) -->
+                    <g class="wheel-rim">
+                        <!-- Rim disc -->
+                        <circle cx="200" cy="200" r="158" fill="url(#rimGrad)"/>
+
+                        <!-- 5 spokes -->
+                        <rect x="190" y="52" width="20" height="148" rx="10" fill="#4a4a4a" transform="rotate(0,200,200)"/>
+                        <rect x="190" y="52" width="20" height="148" rx="10" fill="#4a4a4a" transform="rotate(72,200,200)"/>
+                        <rect x="190" y="52" width="20" height="148" rx="10" fill="#4a4a4a" transform="rotate(144,200,200)"/>
+                        <rect x="190" y="52" width="20" height="148" rx="10" fill="#4a4a4a" transform="rotate(216,200,200)"/>
+                        <rect x="190" y="52" width="20" height="148" rx="10" fill="#4a4a4a" transform="rotate(288,200,200)"/>
+
+                        <!-- Gap fill between spokes -->
+                        <circle cx="200" cy="200" r="157" fill="none" stroke="rgba(0,0,0,0.55)" stroke-width="2"/>
+
+                        <!-- Inner rim ring -->
+                        <circle cx="200" cy="200" r="60" fill="#1a1a1a" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+
+                        <!-- Hub -->
+                        <circle cx="200" cy="200" r="46" fill="url(#hubGrad)"/>
+                        <circle cx="200" cy="200" r="46" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+
+                        <!-- 5 lug nuts -->
+                        <circle cx="200" cy="162" r="8" fill="#1e1e1e" stroke="#555" stroke-width="1.5" transform="rotate(0,200,200)"/>
+                        <circle cx="200" cy="162" r="8" fill="#1e1e1e" stroke="#555" stroke-width="1.5" transform="rotate(72,200,200)"/>
+                        <circle cx="200" cy="162" r="8" fill="#1e1e1e" stroke="#555" stroke-width="1.5" transform="rotate(144,200,200)"/>
+                        <circle cx="200" cy="162" r="8" fill="#1e1e1e" stroke="#555" stroke-width="1.5" transform="rotate(216,200,200)"/>
+                        <circle cx="200" cy="162" r="8" fill="#1e1e1e" stroke="#555" stroke-width="1.5" transform="rotate(288,200,200)"/>
+
+                        <!-- Center cap -->
+                        <circle cx="200" cy="200" r="26" fill="#ff6b00"/>
+                        <circle cx="200" cy="200" r="19" fill="#cc5500"/>
+                        <circle cx="200" cy="200" r="12" fill="#ff8c35"/>
+                        <circle cx="200" cy="200" r="7" fill="#1a1a1a"/>
+                    </g>
+
+                    <!-- Reflection highlight on tire -->
+                    <ellipse cx="148" cy="148" rx="28" ry="14" fill="rgba(255,255,255,0.04)" transform="rotate(-35,148,148)"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ────────── STATS BAR ────────── -->
+<div class="stats-bar">
+    <div class="stats-inner">
+        <div class="stat-item">
+            <div class="stat-num">30 min</div>
+            <div class="stat-label">Ø Wechselzeit</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-num">10 km</div>
+            <div class="stat-label">Umkreis inklusive</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-num">100%</div>
+            <div class="stat-label">Mobiler Service</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-num">Ab 39€</div>
+            <div class="stat-label">Günstige Preise</div>
+        </div>
+    </div>
+</div>
+
+<!-- ────────── SERVICES ────────── -->
+<section class="section" id="services">
+    <div class="container">
+        <div class="section-head">
+            <p class="section-eyebrow">Leistungen</p>
+            <h2 class="section-title">Was wir für Sie tun</h2>
+            <p class="section-sub">Unkomplizierter Reifenservice — direkt dort, wo Ihr Auto steht.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-card-icon">
+                    <!-- Tire swap icon -->
+                    <svg viewBox="0 0 28 28"><path d="M14 2C7.373 2 2 7.373 2 14s5.373 12 12 12 12-5.373 12-12S20.627 2 14 2zm0 20a8 8 0 110-16 8 8 0 010 16zm0-14a6 6 0 100 12A6 6 0 0014 8zm0 9a3 3 0 110-6 3 3 0 010 6z"/></svg>
+                </div>
+                <h3>Sommer ↔ Winter</h3>
+                <p>Wir wechseln Ihre Räder saisongerecht — schnell und zuverlässig direkt am Stellplatz.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-card-icon">
+                    <!-- Four wheels icon -->
+                    <svg viewBox="0 0 28 28"><circle cx="7" cy="7" r="5" fill="none" stroke="white" stroke-width="2"/><circle cx="21" cy="7" r="5" fill="none" stroke="white" stroke-width="2"/><circle cx="7" cy="21" r="5" fill="none" stroke="white" stroke-width="2"/><circle cx="21" cy="21" r="5" fill="none" stroke="white" stroke-width="2"/><circle cx="7" cy="7" r="2" fill="white"/><circle cx="21" cy="7" r="2" fill="white"/><circle cx="7" cy="21" r="2" fill="white"/><circle cx="21" cy="21" r="2" fill="white"/></svg>
+                </div>
+                <h3>Komplette Radsätze</h3>
+                <p>Montage und Wechsel kompletter Radsätze inklusive aller vier Räder in einem Termin.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-card-icon">
+                    <!-- Mobile van icon -->
+                    <svg viewBox="0 0 28 28"><path d="M1 17V9a2 2 0 012-2h14a2 2 0 012 2v1l4 4v3a2 2 0 01-2 2H1zm0 0" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="7" cy="21" r="2.5" fill="white"/><circle cx="19" cy="21" r="2.5" fill="white"/><path d="M19 10l3 4" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+                </div>
+                <h3>Vor-Ort-Service</h3>
+                <p>Kein Schleppen, kein Warten in der Werkstatt. Wir kommen mit allem Werkzeug zu Ihnen.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-card-icon">
+                    <!-- Clock/moon icon -->
+                    <svg viewBox="0 0 28 28"><path d="M14 3a11 11 0 100 22A11 11 0 0014 3zm0 2a9 9 0 010 18A9 9 0 0114 5z" fill="white"/><path d="M14 8v6l4 2" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <h3>Flexible Abendtermine</h3>
+                <p>Alle Termine finden abends statt — ideal für Berufstätige, die tagsüber keine Zeit haben.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ────────── HOW IT WORKS ────────── -->
+<section class="section" id="how-it-works">
+    <div class="container">
+        <div class="section-head">
+            <p class="section-eyebrow">Ablauf</p>
+            <h2 class="section-title" style="color:white;">So einfach geht's</h2>
+            <p class="section-sub" style="color:rgba(255,255,255,0.5);">In drei Schritten zum fertig gewechselten Fahrzeug — ohne Aufwand für Sie.</p>
+        </div>
+        <div class="steps-grid">
+            <div class="step-card">
+                <div class="step-num">1</div>
+                <h3>Termin buchen</h3>
+                <p>Wählen Sie einen Abendtermin über unseren Buchungskalender oder schreiben Sie uns direkt per WhatsApp.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-num">2</div>
+                <h3>Wir kommen zu Ihnen</h3>
+                <p>Unser Techniker kommt pünktlich mit dem gesamten Werkzeug direkt zu Ihnen — Einfahrt, Parkplatz oder Stellplatz.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-num">3</div>
+                <h3>Fertig &amp; fahrtbereit</h3>
+                <p>Der Wechsel dauert ca. 15 Minuten. Danach sind Sie sofort wieder fahrtbereit — ohne Umwege.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ────────── NOT AVAILABLE ────────── -->
+<section class="section" id="not-available">
+    <div class="container">
+        <div class="not-available-layout">
+            <div>
+                <p class="section-eyebrow">Transparenz</p>
+                <h2 class="section-title">Was wir nicht anbieten</h2>
+                <p class="section-sub" style="margin-bottom:36px;">Damit Sie keine bösen Überraschungen erleben — hier klar, was nicht im Leistungsumfang liegt.</p>
+                <div class="not-available-list">
+                    <div class="not-item"><div class="not-x">✕</div> Reifenmontage auf Felgen</div>
+                    <div class="not-item"><div class="not-x">✕</div> Auswuchten</div>
+                    <div class="not-item"><div class="not-x">✕</div> Reifeneinlagerung</div>
+                    <div class="not-item"><div class="not-x">✕</div> Reifenreparaturen</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ────────── PRICING ────────── -->
+<section class="section" id="pricing">
+    <div class="container">
+        <div class="section-head">
+            <p class="section-eyebrow" style="color:var(--orange);">Preise</p>
+            <h2 class="section-title" style="color:white;">Einfach &amp; fair</h2>
+            <p class="section-sub" style="color:rgba(255,255,255,0.5);">Anfahrt im Umkreis von ca. 10 km um München-Perlach ist immer inklusive.</p>
+        </div>
+        <div class="pricing-wrap">
+            <div class="pricing-card featured">
+                <span class="pricing-emoji">🚗</span>
+                <div class="pricing-type">PKW</div>
+                <div class="pricing-price">39€</div>
+                <div class="pricing-hint">ab / pro Fahrzeug</div>
+                <hr class="pricing-divider">
+                <p class="pricing-note">Für alle gängigen Personenkraftwagen. Wechsel aller vier Räder inklusive.</p>
+            </div>
+            <div class="pricing-card">
+                <span class="pricing-emoji">🚙</span>
+                <div class="pricing-type">SUV &amp; Van</div>
+                <div class="pricing-price">49€</div>
+                <div class="pricing-hint">ab / pro Fahrzeug</div>
+                <hr class="pricing-divider">
+                <p class="pricing-note">Für SUVs, Transporter und Vans mit größeren Raddimensionen.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ────────── AREA ────────── -->
+<section class="section" id="area">
+    <div class="container">
+        <div class="area-layout">
+            <div>
+                <p class="section-eyebrow">Einsatzgebiet</p>
+                <h2 class="section-title">München-Perlach &amp; Umgebung</h2>
+                <p class="section-sub" style="margin-bottom:44px;">Wir kommen überall dort hin, wo Ihr Fahrzeug steht — im Umkreis von ca. 10 km.</p>
+                <div class="area-cards">
+                    <div class="area-card">
+                        <div class="area-card-icon">📍</div>
+                        <div class="area-card-text">
+                            <h4>Standort</h4>
+                            <p>München-Perlach — direkt im Herzen des Münchner Ostens</p>
+                        </div>
+                    </div>
+                    <div class="area-card">
+                        <div class="area-card-icon">🗺️</div>
+                        <div class="area-card-text">
+                            <h4>Umkreis</h4>
+                            <p>Ca. 10 km Radius — z. B. Neuperlach, Ramersdorf, Giesing, Ottobrunn, Neubiberg</p>
+                        </div>
+                    </div>
+                    <div class="area-card">
+                        <div class="area-card-icon">🌙</div>
+                        <div class="area-card-text">
+                            <h4>Verfügbarkeit</h4>
+                            <p>Termine ausschließlich abends — perfekt für Berufstätige</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="area-map-box">
+                <!-- Map illustration SVG -->
+                <svg class="map-visual" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <!-- Map background -->
+                    <rect width="400" height="300" fill="#141414"/>
+                    <!-- Streets grid -->
+                    <line x1="200" y1="0" x2="200" y2="300" stroke="#252525" stroke-width="8"/>
+                    <line x1="0" y1="150" x2="400" y2="150" stroke="#252525" stroke-width="8"/>
+                    <line x1="100" y1="0" x2="100" y2="300" stroke="#1e1e1e" stroke-width="4"/>
+                    <line x1="300" y1="0" x2="300" y2="300" stroke="#1e1e1e" stroke-width="4"/>
+                    <line x1="0" y1="80" x2="400" y2="80" stroke="#1e1e1e" stroke-width="4"/>
+                    <line x1="0" y1="220" x2="400" y2="220" stroke="#1e1e1e" stroke-width="4"/>
+                    <!-- Diagonal roads -->
+                    <line x1="50" y1="0" x2="350" y2="300" stroke="#1c1c1c" stroke-width="6"/>
+                    <line x1="350" y1="0" x2="50" y2="300" stroke="#1c1c1c" stroke-width="3"/>
+                    <!-- Park/green area -->
+                    <rect x="130" y="90" width="80" height="60" rx="8" fill="#1a2a1a" opacity="0.7"/>
+                    <rect x="240" y="170" width="60" height="40" rx="6" fill="#1a2a1a" opacity="0.5"/>
+                    <!-- Service radius circle -->
+                    <circle cx="200" cy="150" r="100" fill="rgba(255,107,0,0.06)" stroke="rgba(255,107,0,0.3)" stroke-width="2" stroke-dasharray="8 6"/>
+                    <!-- Center marker -->
+                    <circle cx="200" cy="150" r="18" fill="rgba(255,107,0,0.2)" stroke="var(--orange)" stroke-width="2"/>
+                    <circle cx="200" cy="150" r="8" fill="#ff6b00"/>
+                    <circle cx="200" cy="150" r="3" fill="white"/>
+                    <!-- Label -->
+                    <rect x="126" y="182" width="148" height="26" rx="6" fill="rgba(255,107,0,0.9)"/>
+                    <text x="200" y="200" font-family="Arial,sans-serif" font-size="11" font-weight="bold" fill="white" text-anchor="middle">München-Perlach</text>
+                    <!-- Radius label -->
+                    <text x="288" y="95" font-family="Arial,sans-serif" font-size="10" fill="rgba(255,107,0,0.7)" text-anchor="middle">~10 km</text>
+                </svg>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ────────── CTA / CONTACT ────────── -->
+<section id="cta">
+    <div class="container" style="position:relative;z-index:1;">
+        <p class="section-eyebrow" style="text-align:center;margin-bottom:16px;">Kontakt</p>
+        <h2 class="section-title" style="color:white;text-align:center;max-width:640px;margin:0 auto 18px;">
+            Bereit für den Reifenwechsel?
+        </h2>
+        <p class="section-sub" style="color:rgba(255,255,255,0.5);text-align:center;margin:0 auto 52px;">
+            Buchen Sie Ihren Wunschtermin online oder melden Sie sich direkt per WhatsApp — wir antworten schnell.
+        </p>
+        <div class="cta-actions">
+            <a href="https://calendar.app.google/cqc5T14KyWctMVs58" target="_blank" rel="noopener" class="btn-primary" style="font-size:17px;padding:19px 40px;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                Termin online buchen
+            </a>
+            <a href="https://wa.me/4915215787806" target="_blank" rel="noopener" class="btn-whatsapp" style="font-size:17px;padding:19px 40px;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 1C5.928 1 1 5.929 1 12c0 1.856.487 3.6 1.338 5.116L1 23l6.044-1.323A10.957 10.957 0 0011.999 23C18.07 23 23 18.07 23 12S18.07 1 11.999 1zm0 20c-1.676 0-3.24-.45-4.59-1.233l-.329-.196-3.588.787.817-3.501-.213-.342A8.986 8.986 0 013 12c0-4.963 4.037-9 9-9s9 4.037 9 9-4.037 9-9 9z"/></svg>
+                WhatsApp schreiben
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ────────── FOOTER ────────── -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-logo">
+            <img src="assets/logo.png" alt="Mobiler Reifenwechsel München">
+        </div>
+        <p class="footer-copy">© 2025 Mobiler Reifenwechsel München-Perlach</p>
+        <p class="footer-impressum">
+            <a href="#impressum" id="impressum">Impressum</a>: Rodricars · Josef-Knappich-Straße · 85640 Putzbrunn
+        </p>
+    </div>
+</footer>
+
+</body>
+</html>
